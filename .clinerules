@@ -1,0 +1,64 @@
+# Memory Bank Reading Instructions
+
+## Purpose
+
+Memory bank files contain comprehensive project documentation that provides essential context for understanding the codebase, architecture, and business requirements. Always read these files first when working on a project.
+
+## General Reading Approach
+
+1. **Read All Files**: Always read all files in the memory-bank directory to get complete context
+2. **Sequential Order**: Read files in the order they appear alphabetically for systematic understanding
+3. **Cross-Reference**: Look for connections between different memory bank files
+4. **Note Key Details**: Extract and remember important technical and business information
+
+## Recommended Reading Priority
+
+While all memory bank files should be read, consider this suggested order for optimal understanding:
+
+1. **Project Context** - Understand the business purpose and goals
+2. **Technical Architecture** - Learn the technology stack and build system
+3. **Application Structure** - Study component architecture and patterns
+4. **Development Workflow** - Understand coding practices and processes
+5. **Styling System** - Learn design system and CSS architecture
+6. **External Integrations** - Understand third-party services and APIs
+
+## Key Information to Extract
+
+From each memory bank file, focus on understanding:
+
+- **Business Context**: Purpose, target audience, success metrics
+- **Technical Stack**: Frameworks, libraries, build tools
+- **Architecture Patterns**: Component structure, data flow, state management
+- **Design System**: Colors, spacing, typography, responsive patterns
+- **Integration Points**: External services, APIs, third-party tools
+- **Development Practices**: Coding standards, testing approach, deployment
+
+## Best Practices
+
+- **Take Notes**: Mentally note key technical decisions and constraints
+- **Understand Dependencies**: Identify how different parts of the system interact
+- **Consider Edge Cases**: Think about how the documented patterns handle various scenarios
+- **Validate Understanding**: Cross-reference memory bank content with actual code implementation
+
+## When to Re-read
+
+Revisit memory bank files when:
+
+- Starting work on a new feature or component
+- Encountering unfamiliar code patterns
+- Making architectural decisions
+- Debugging complex issues
+- Onboarding to the project
+
+## File Naming Convention
+
+Memory bank files typically follow this pattern:
+
+- `project-context.md` - Business and domain context
+- `technical-architecture.md` - Technology stack and infrastructure
+- `application-structure.md` - Code organization and patterns
+- `development-workflow.md` - Processes and best practices
+- `styling-system.md` - Design system and CSS architecture
+- `external-integrations.md` - Third-party services and APIs
+
+Remember: The memory bank provides the "why" behind the code - understanding it thoroughly will make you more effective at working with the codebase.
