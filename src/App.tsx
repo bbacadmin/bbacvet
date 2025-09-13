@@ -596,7 +596,7 @@ export default function App() {
               </button>
               <a
                 href="tel:+19297381230"
-                className="btn-pill border border-white text-white"
+                className="btn-pill border border-white"
               >
                 <Phone className="h-3.5 w-3.5 mr-[7px]" />
                 Call (929) 738-1230
@@ -838,7 +838,12 @@ export default function App() {
                 <div className="flex items-start">
                   <Phone className="text-[oklch(0.792_0.209_151.711)] h-[17.5px] w-[17.5px] mr-[10.5px] mt-[3.5px]" />
                   <div>
-                    <p className="">(929) 738-1230</p>
+                    <a
+                      href="tel:+19297381230"
+                      className="text-white hover:text-[oklch(0.962_0.044_156.743)] transition-colors"
+                    >
+                      (929) 738-1230
+                    </a>
                     <p className="text-[oklch(0.707_0.022_261.325)] text-[12.25px] leading-[17.5px]">
                       Mon-Fri: 9AM-6PM
                     </p>
@@ -849,7 +854,12 @@ export default function App() {
                 <div className="flex items-start">
                   <Mail className="text-[oklch(0.792_0.209_151.711)] h-[17.5px] w-[17.5px] mr-[10.5px] mt-[3.5px]" />
                   <div>
-                    <p className="">bbacvet@gmail.com</p>
+                    <a
+                      href="mailto:bbacvet@gmail.com"
+                      className="text-white hover:text-[oklch(0.962_0.044_156.743)] transition-colors"
+                    >
+                      bbacvet@gmail.com
+                    </a>
                     <p className="text-[oklch(0.707_0.022_261.325)] text-[12.25px] leading-[17.5px]">
                       We'll respond within one business day
                     </p>
@@ -885,8 +895,8 @@ export default function App() {
                 Hours & Social
               </h4>
               <div className="mb-3.5">
-                <div className="flex items-center">
-                  <Clock className="text-[oklch(0.792_0.209_151.711)] h-[17.5px] w-[17.5px] mr-[10.5px]" />
+                <div className="flex items-start">
+                  <Clock className="text-[oklch(0.792_0.209_151.711)] h-[17.5px] w-[17.5px] mr-[10.5px] mt-[3.5px]" />
                   <div>
                     <p className="">Monday - Friday</p>
                     <p className="text-[oklch(0.707_0.022_261.325)] text-[12.25px] leading-[17.5px]">
@@ -896,8 +906,8 @@ export default function App() {
                 </div>
               </div>
               <div className="mb-[21px]">
-                <div className="flex items-center">
-                  <Clock className="text-[oklch(0.792_0.209_151.711)] h-[17.5px] w-[17.5px] mr-[10.5px]" />
+                <div className="flex items-start">
+                  <Clock className="text-[oklch(0.792_0.209_151.711)] h-[17.5px] w-[17.5px] mr-[10.5px] mt-[3.5px]" />
                   <div>
                     <p className="">Weekends</p>
                     <p className="text-[oklch(0.707_0.022_261.325)] text-[12.25px] leading-[17.5px]">
