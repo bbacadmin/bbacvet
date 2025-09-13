@@ -15,7 +15,7 @@
   --color-gray-500: oklch(0.373 0.034 259.733);
   --color-dark-bg: oklch(0.21 0.034 264.665);
 
-  /* Enhanced Typography */
+  /* Enhanced Typography Hierarchy */
   --font-size-xs: 0.75rem;
   --font-size-sm: 0.875rem;
   --font-size-base: 1rem;
@@ -25,6 +25,21 @@
   --font-size-3xl: 1.875rem;
   --font-size-4xl: 2.25rem;
   --font-size-5xl: 3rem;
+
+  /* Font Weights for Hierarchy */
+  --font-weight-light: 300;
+  --font-weight-normal: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  --font-weight-extrabold: 800;
+
+  /* Line Heights for Readability */
+  --line-height-tight: 1.25;
+  --line-height-snug: 1.375;
+  --line-height-normal: 1.5;
+  --line-height-relaxed: 1.625;
+  --line-height-loose: 2;
 
   /* Enhanced Spacing */
   --space-1: 0.25rem;
@@ -367,6 +382,28 @@ body {
 /* ===== SECTION STYLES ===== */
 .section {
   padding: 3.5rem 0;
+  position: relative;
+}
+
+.section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    var(--color-primary),
+    transparent
+  );
+  opacity: 0.3;
+}
+
+.section:first-of-type::before {
+  display: none;
 }
 
 .section-white {
@@ -974,16 +1011,69 @@ body {
   animation: fadeInUp 0.6s ease-out;
 }
 
-/* ===== FOCUS STYLES ===== */
+/* ===== ACCESSIBILITY & FOCUS STYLES ===== */
+
+/* Enhanced Focus Indicators */
 .btn-primary:focus,
 .btn-ghost:focus,
 .btn-pill:focus {
-  outline: 2px solid var(--color-emerald-500);
+  outline: 3px solid var(--color-primary);
   outline-offset: 2px;
+  box-shadow: 0 0 0 6px rgba(6, 95, 70, 0.2);
 }
 
 .nav-link:focus {
-  outline: none;
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+/* Link Focus States */
+a:focus,
+button:focus {
+  outline: 2px solid var(--color-primary);
+  outline-offset: 2px;
+}
+
+/* Skip Link for Screen Readers */
+.skip-link {
+  position: absolute;
+  top: -40px;
+  left: 6px;
+  background: var(--color-primary);
+  color: white;
+  padding: 8px;
+  text-decoration: none;
+  border-radius: 4px;
+  z-index: 1000;
+}
+
+.skip-link:focus {
+  top: 6px;
+}
+
+/* High Contrast Mode Support */
+@media (prefers-contrast: high) {
+  .btn-primary,
+  .btn-ghost,
+  .btn-pill {
+    border: 2px solid currentColor;
+  }
+
+  .card {
+    border: 2px solid currentColor;
+  }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
 
 /* ===== MOBILE MENU STYLES ===== */
