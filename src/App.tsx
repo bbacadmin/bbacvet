@@ -26,9 +26,12 @@ import dogImg2 from "./assets/dog2.jpg";
 const CLINIC_ID = "brightonbeachac"; // Clinic identifier
 const LOCATION_ID = "27743"; // Location identifier
 
-// Smooth scroll helper
+// Smooth scroll helper with user scroll detection
 const useSmoothScroll = () => {
   const map = React.useRef<Record<string, HTMLElement | null>>({});
+  const scrollTimeoutRef = React.useRef<number | null>(null);
+  const isUserScrollingRef = React.useRef(false);
+
   React.useEffect(() => {
     map.current = {
       home: document.getElementById("home"),
@@ -37,10 +40,73 @@ const useSmoothScroll = () => {
       contact: document.getElementById("contact"),
     };
   }, []);
+
   const scrollTo = (id: keyof typeof map.current) => {
     const el = map.current[id];
-    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+    if (!el) return;
+
+    // Clear any existing timeout
+    if (scrollTimeoutRef.current) {
+      clearTimeout(scrollTimeoutRef.current);
+    }
+
+    // Reset user scrolling flag
+    isUserScrollingRef.current = false;
+
+    // Listen for user scroll events during smooth scroll
+    const handleUserScroll = () => {
+      isUserScrollingRef.current = true;
+    };
+
+    // Add scroll listener
+    window.addEventListener("wheel", handleUserScroll, { passive: true });
+    window.addEventListener("touchmove", handleUserScroll, { passive: true });
+    window.addEventListener("keydown", (e) => {
+      if (
+        ["ArrowUp", "ArrowDown", "PageUp", "PageDown", "Home", "End"].includes(
+          e.key
+        )
+      ) {
+        handleUserScroll();
+      }
+    });
+
+    // Start smooth scroll with custom timing
+    el.scrollIntoView({ behavior: "smooth", block: "start" });
+
+    // Override the default smooth scroll timing for faster scrolling
+    const scrollableElement =
+      document.scrollingElement || document.documentElement;
+    const startPosition = scrollableElement.scrollTop;
+    const targetPosition = el.offsetTop - 80; // Account for header
+    const distance = targetPosition - startPosition;
+
+    if (Math.abs(distance) > 100) {
+      // Only override for significant scrolls
+      // Use a faster scroll animation
+      scrollableElement.scrollTo({
+        top: targetPosition,
+        behavior: "smooth",
+      });
+    }
+
+    // Set timeout to check if user interrupted scroll
+    scrollTimeoutRef.current = setTimeout(() => {
+      // Remove listeners
+      window.removeEventListener("wheel", handleUserScroll);
+      window.removeEventListener("touchmove", handleUserScroll);
+      window.removeEventListener("keydown", handleUserScroll);
+
+      // If user was scrolling, don't update active state
+      if (isUserScrollingRef.current) {
+        // User interrupted, don't change active state
+        return;
+      }
+
+      // Normal completion - active state will be updated by intersection observer
+    }, 1000); // Adjust timeout based on scroll distance
   };
+
   return scrollTo;
 };
 
@@ -144,12 +210,10 @@ export default function App() {
               {navItem("services", "Services")}
               {navItem("about", "About")}
               {navItem("contact", "Contact")}
-              <div className="items-center box-border caret-transparent hidden min-h-0 min-w-0 outline-[oklab(0.708_0_0_/_0.5)] md:flex md:min-h-[auto] md:min-w-[auto]">
-                <div className="text-[oklch(0.446_0.03_256.802)] items-center box-border caret-transparent flex min-h-0 min-w-0 outline-[oklab(0.708_0_0_/_0.5)] mr-3.5 md:min-h-[auto] md:min-w-[auto]">
-                  <Phone className="icon-md text-[oklch(0.627_0.194_149.214)] mr-[7px]" />
-                  <span className="text-[12.25px] box-border caret-transparent block leading-[17.5px] min-h-0 min-w-0 outline-[oklab(0.708_0_0_/_0.5)] md:min-h-[auto] md:min-w-[auto]">
-                    (929) 738-1230
-                  </span>
+              <div className="items-center hidden md:flex">
+                <div className="text-slate-800 items-center flex mr-3.5">
+                  <Phone className="icon-md text-emerald-600 mr-1.5" />
+                  <span className="text-xs">(929) 738-1230</span>
                 </div>
                 <button onClick={() => launchBooking()} className="btn-primary">
                   Book Appointment
@@ -186,20 +250,20 @@ export default function App() {
                     />
                   </div>
                   <div className="flex items-center">
-                    <Star className="text-[oklch(0.852_0.199_91.936)] h-[17.5px] w-[17.5px]" />
-                    <Star className="text-[oklch(0.852_0.199_91.936)] h-[17.5px] w-[17.5px]" />
-                    <Star className="text-[oklch(0.852_0.199_91.936)] h-[17.5px] w-[17.5px]" />
-                    <Star className="text-[oklch(0.852_0.199_91.936)] h-[17.5px] w-[17.5px]" />
-                    <Star className="text-[oklch(0.852_0.199_91.936)] h-[17.5px] w-[17.5px]" />
-                    <span className="text-[oklch(0.446_0.03_256.802)] block ml-[7px]">
+                    <Star className="text-yellow-400 h-4 w-4" />
+                    <Star className="text-yellow-400 h-4 w-4" />
+                    <Star className="text-yellow-400 h-4 w-4" />
+                    <Star className="text-yellow-400 h-4 w-4" />
+                    <Star className="text-yellow-400 h-4 w-4" />
+                    <span className="text-slate-800 block ml-1.5">
                       New clinic, experienced care
                     </span>
                   </div>
                 </div>
-                <h1 className="text-[oklch(0.21_0.034_264.665)] text-[31.5px] leading-[35px] mb-[21px] md:text-[52.5px] md:leading-[52.5px]">
+                <h1 className="text-slate-900 text-2xl leading-8 mb-5 md:text-5xl md:leading-12">
                   Compassionate Care for Your Beloved Pets
                 </h1>
-                <p className="text-[oklch(0.446_0.03_256.802)] text-[17.5px] leading-[24.5px] max-w-md mb-7">
+                <p className="text-slate-800 text-base leading-6 max-w-md mb-7">
                   Welcome to Brighton Beach Animal Clinic, where your pet's
                   health and happiness are our top priority. Our experienced
                   veterinary team provides comprehensive care in a warm,
@@ -223,42 +287,51 @@ export default function App() {
                     Learn More
                   </a>
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-3.5">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
                   <div className="card card-padding-sm">
-                    <div className="flex items-center">
-                      <Clock className="text-[oklch(0.627_0.194_149.214)] h-[17.5px] w-[17.5px] mr-[10.5px]" />
+                    <div className="flex items-start">
+                      <Clock className="text-[oklch(0.627_0.194_149.214)] h-[21px] w-[21px] mr-[10.5px] mt-[2px]" />
                       <div>
-                        <p className="text-[oklch(0.551_0.027_264.364)] text-[12.25px] leading-[17.5px]">
-                          Hours
-                        </p>
                         <p className="text-[oklch(0.21_0.034_264.665)]">
-                          Mon-Fri: 9AM-6PM
+                          <span className="text-[oklch(0.551_0.027_264.364)] text-[14px] leading-[20px]">
+                            Hours:
+                          </span>
+                          <br />
+                          <span className="text-[oklch(0.446_0.03_256.802)] text-[13px] leading-[18px]">
+                            Mon-Fri: 9AM-6PM
+                          </span>
                         </p>
                       </div>
                     </div>
                   </div>
                   <a className="card card-padding-sm" href="tel:+19297381230">
-                    <div className="flex items-center">
-                      <Phone className="text-[oklch(0.627_0.194_149.214)] h-[17.5px] w-[17.5px] mr-[10.5px]" />
+                    <div className="flex items-start">
+                      <Phone className="text-[oklch(0.627_0.194_149.214)] h-[21px] w-[21px] mr-[10.5px] mt-[2px]" />
                       <div>
-                        <p className="text-[oklch(0.551_0.027_264.364)] text-[12.25px] leading-[17.5px]">
-                          Call Us
-                        </p>
                         <p className="text-[oklch(0.21_0.034_264.665)]">
-                          (929) 738-1230
+                          <span className="text-[oklch(0.551_0.027_264.364)] text-[14px] leading-[20px]">
+                            Call Us:
+                          </span>
+                          <br />
+                          <span className="text-[oklch(0.446_0.03_256.802)] text-[13px] leading-[18px]">
+                            (929) 738-1230
+                          </span>
                         </p>
                       </div>
                     </div>
                   </a>
                   <div className="card card-padding-sm">
-                    <div className="flex items-center">
-                      <MapPin className="text-[oklch(0.627_0.194_149.214)] h-[17.5px] w-[17.5px] mr-[10.5px]" />
+                    <div className="flex items-start">
+                      <MapPin className="text-[oklch(0.627_0.194_149.214)] h-[21px] w-[21px] mr-[10.5px] mt-[2px]" />
                       <div>
-                        <p className="text-[oklch(0.551_0.027_264.364)] text-[12.25px] leading-[17.5px]">
-                          Location
-                        </p>
                         <p className="text-[oklch(0.21_0.034_264.665)]">
-                          Brighton Beach
+                          <span className="text-[oklch(0.551_0.027_264.364)] text-[14px] leading-[20px]">
+                            Location:
+                          </span>
+                          <br />
+                          <span className="text-[oklch(0.446_0.03_256.802)] text-[13px] leading-[18px]">
+                            Brighton Beach
+                          </span>
                         </p>
                       </div>
                     </div>
@@ -372,8 +445,8 @@ export default function App() {
               ].map((service) => (
                 <div key={service.title} className="card card-padding">
                   <div className="flex flex-col gap-[21px]">
-                    <div className="flex flex-col gap-[5.25px] pt-[21px] pb-3.5 px-[21px]">
-                      <div className="flex items-center justify-center h-[42px] w-[42px] mb-3.5 rounded-[8.75px] bg-[oklch(0.962_0.044_156.743)]">
+                    <div className="flex items-center gap-[10.5px] pt-[21px] pb-3.5 px-[21px]">
+                      <div className="flex items-center justify-center h-[42px] w-[42px] rounded-[8.75px] bg-[oklch(0.962_0.044_156.743)]">
                         <span className="text-[oklch(0.627_0.194_149.214)]">
                           {service.icon}
                         </span>
@@ -508,8 +581,8 @@ export default function App() {
                   className="card card-padding text-center"
                 >
                   <div className="flex flex-col gap-[21px]">
-                    <div className="flex flex-col gap-[5.25px] pt-[21px] pb-3.5 px-[21px]">
-                      <div className="flex items-center justify-center h-[42px] w-[42px] mb-3.5 mx-auto rounded-[3.35544e+07px] bg-[oklch(0.962_0.044_156.743)]">
+                    <div className="flex items-center gap-[10.5px] pt-[21px] pb-3.5 px-[21px]">
+                      <div className="flex items-center justify-center h-[42px] w-[42px] rounded-[3.35544e+07px] bg-[oklch(0.962_0.044_156.743)]">
                         <span className="text-[oklch(0.627_0.194_149.214)]">
                           {feature.icon}
                         </span>
@@ -687,6 +760,9 @@ export default function App() {
                         (929) 738-1230
                       </p>
                       <p className="text-[oklch(0.551_0.027_264.364)] text-[12.25px] leading-[17.5px]">
+                        <span className="text-[oklch(0.551_0.027_264.364)] text-[12.25px] leading-[17.5px]">
+                          Hours:
+                        </span>{" "}
                         Mon-Fri: 9AM-6PM
                       </p>
                     </div>
@@ -700,7 +776,7 @@ export default function App() {
                         Email
                       </h4>
                       <p className="text-[oklch(0.446_0.03_256.802)]">
-                        info@brightonbeachanimalclinic.com
+                        bbacvet@gmail.com
                       </p>
                       <p className="text-[oklch(0.551_0.027_264.364)] text-[12.25px] leading-[17.5px]">
                         We'll respond within one business day
@@ -732,6 +808,9 @@ export default function App() {
                         Hours
                       </h4>
                       <p className="text-[oklch(0.446_0.03_256.802)]">
+                        <span className="text-[oklch(0.551_0.027_264.364)] text-[12.25px] leading-[17.5px]">
+                          Hours:
+                        </span>{" "}
                         Mon-Fri: 9AM-6PM
                       </p>
                       <p className="text-[oklch(0.551_0.027_264.364)] text-[12.25px] leading-[17.5px]">
@@ -847,8 +926,10 @@ export default function App() {
                   Contact Information
                 </h4>
                 <div className="mb-3.5">
-                  <div className="flex items-start">
-                    <Phone className="text-[oklch(0.792_0.209_151.711)] h-[17.5px] w-[17.5px] mr-[10.5px] mt-[3.5px]" />
+                  <div className="flex items-center">
+                    <div className="flex items-center justify-center h-[42px] w-[42px] mr-3.5 rounded-[8.75px] bg-[oklch(0.962_0.044_156.743)]">
+                      <Phone className="text-[oklch(0.627_0.194_149.214)] h-[17.5px] w-[17.5px]" />
+                    </div>
                     <div>
                       <a
                         href="tel:+19297381230"
@@ -857,14 +938,19 @@ export default function App() {
                         (929) 738-1230
                       </a>
                       <p className="text-[oklch(0.707_0.022_261.325)] text-[12.25px] leading-[17.5px]">
+                        <span className="text-[oklch(0.707_0.022_261.325)] text-[12.25px] leading-[17.5px]">
+                          Hours:
+                        </span>{" "}
                         Mon-Fri: 9AM-6PM
                       </p>
                     </div>
                   </div>
                 </div>
                 <div className="mb-3.5">
-                  <div className="flex items-start">
-                    <Mail className="text-[oklch(0.792_0.209_151.711)] h-[17.5px] w-[17.5px] mr-[10.5px] mt-[3.5px]" />
+                  <div className="flex items-center">
+                    <div className="flex items-center justify-center h-[42px] w-[42px] mr-3.5 rounded-[8.75px] bg-[oklch(0.962_0.044_156.743)]">
+                      <Mail className="text-[oklch(0.627_0.194_149.214)] h-[17.5px] w-[17.5px]" />
+                    </div>
                     <div>
                       <a
                         href="mailto:bbacvet@gmail.com"
@@ -873,18 +959,26 @@ export default function App() {
                         bbacvet@gmail.com
                       </a>
                       <p className="text-[oklch(0.707_0.022_261.325)] text-[12.25px] leading-[17.5px]">
-                        We'll respond within one business day
+                        <span className="text-[oklch(0.707_0.022_261.325)] text-[12.25px] leading-[17.5px]">
+                          Hours:
+                        </span>{" "}
+                        9:00 AM - 6:00 PM
                       </p>
                     </div>
                   </div>
                 </div>
                 <div className="mb-3.5">
-                  <div className="flex items-start">
-                    <MapPin className="text-[oklch(0.792_0.209_151.711)] h-[17.5px] w-[17.5px] mr-[10.5px] mt-[3.5px]" />
+                  <div className="flex items-center">
+                    <div className="flex items-center justify-center h-[42px] w-[42px] mr-3.5 rounded-[8.75px] bg-[oklch(0.962_0.044_156.743)]">
+                      <MapPin className="text-[oklch(0.627_0.194_149.214)] h-[17.5px] w-[17.5px]" />
+                    </div>
                     <div>
                       <p className="">122 Brighton 11th Street</p>
                       <p className="text-[oklch(0.707_0.022_261.325)] text-[12.25px] leading-[17.5px]">
-                        Brooklyn, NY 11235
+                        <span className="text-[oklch(0.707_0.022_261.325)] text-[12.25px] leading-[17.5px]">
+                          Hours:
+                        </span>{" "}
+                        9:00 AM - 6:00 PM
                       </p>
                     </div>
                   </div>
@@ -907,19 +1001,26 @@ export default function App() {
                   Hours & Social
                 </h4>
                 <div className="mb-3.5">
-                  <div className="flex items-start">
-                    <Clock className="text-[oklch(0.792_0.209_151.711)] h-[17.5px] w-[17.5px] mr-[10.5px] mt-[3.5px]" />
+                  <div className="flex items-center">
+                    <div className="flex items-center justify-center h-[42px] w-[42px] mr-3.5 rounded-[8.75px] bg-[oklch(0.962_0.044_156.743)]">
+                      <Clock className="text-[oklch(0.627_0.194_149.214)] h-[17.5px] w-[17.5px]" />
+                    </div>
                     <div>
                       <p className="">Monday - Friday</p>
                       <p className="text-[oklch(0.707_0.022_261.325)] text-[12.25px] leading-[17.5px]">
+                        <span className="text-[oklch(0.707_0.022_261.325)] text-[12.25px] leading-[17.5px]">
+                          Hours:
+                        </span>{" "}
                         9:00 AM - 6:00 PM
                       </p>
                     </div>
                   </div>
                 </div>
                 <div className="mb-[21px]">
-                  <div className="flex items-start">
-                    <Clock className="text-[oklch(0.792_0.209_151.711)] h-[17.5px] w-[17.5px] mr-[10.5px] mt-[3.5px]" />
+                  <div className="flex items-center">
+                    <div className="flex items-center justify-center h-[42px] w-[42px] mr-3.5 rounded-[8.75px] bg-[oklch(0.962_0.044_156.743)]">
+                      <Clock className="text-[oklch(0.627_0.194_149.214)] h-[17.5px] w-[17.5px]" />
+                    </div>
                     <div>
                       <p className="">Weekends</p>
                       <p className="text-[oklch(0.707_0.022_261.325)] text-[12.25px] leading-[17.5px]">

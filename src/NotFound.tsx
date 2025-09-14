@@ -27,14 +27,9 @@ export default function NotFound() {
       </header>
 
       {/* 404 Content */}
-      <section
-        className="section section-white"
-        style={{ minHeight: "80vh", display: "flex", alignItems: "center" }}
-      >
+      <section className="section section-white notfound-section">
         <div className="content-wrapper">
-          <div
-            style={{ textAlign: "center", maxWidth: "48rem", margin: "0 auto" }}
-          >
+          <div className="notfound-content">
             {/* 404 Badge */}
             <div
               className="hero-badge"
