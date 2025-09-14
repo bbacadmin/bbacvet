@@ -1,4 +1,3 @@
-import React from "react";
 import { Menu, X } from "lucide-react";
 import ClinicInfo from "./ClinicInfo";
 import ContactLink from "./ContactLink";

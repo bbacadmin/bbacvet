@@ -58,7 +58,7 @@ export default function About() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-[42px] mb-[70px] items-start">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-[42px] mb-[70px]">
           <div>
             <h3 className="text-[oklch(0.21_0.034_264.665)] text-[21px] leading-7 mb-[21px]">
               Welcome to Our New Clinic
@@ -84,7 +84,7 @@ export default function About() {
             </p>
           </div>
           <div className="relative">
-            <div className="aspect-square shadow-[rgba(0,0,0,0)_0px_0px_0px_0px,rgba(0,0,0,0)_0px_0px_0px_0px,rgba(0,0,0,0)_0px_0px_0px_0px,rgba(0,0,0,0)_0px_0px_0px_0px,rgba(0,0,0,0.1)_0px_20px_25px_-5px,rgba(0,0,0,0.1)_0px_8px_10px_-6px] overflow-hidden rounded-[14px]">
+            <div className="shadow-[rgba(0,0,0,0)_0px_0px_0px_0px,rgba(0,0,0,0)_0px_0px_0px_0px,rgba(0,0,0,0)_0px_0px_0px_0px,rgba(0,0,0,0)_0px_0px_0px_0px,rgba(0,0,0,0.1)_0px_20px_25px_-5px,rgba(0,0,0,0.1)_0px_8px_10px_-6px] overflow-hidden rounded-[14px]">
               <img
                 src={dogImg}
                 alt="Modern veterinary clinic interior with examination table and medical equipment"

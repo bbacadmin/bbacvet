@@ -1,4 +1,3 @@
-import React from "react";
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
 import { CLINIC_DATA } from "../constants/clinicData";
 
@@ -66,7 +65,7 @@ export default function ContactCard({
   return (
     <div className={`${getCardClasses()} ${className}`}>
       {showPhone && (
-        <div className="flex items-center">
+        <div className="flex items-start mb-4">
           <div className="flex items-center justify-center h-[42px] w-[42px] mr-3.5 rounded-[8.75px] bg-[oklch(0.962_0.044_156.743)]">
             <Phone className={getIconClasses()} />
           </div>
@@ -89,7 +88,7 @@ export default function ContactCard({
       )}
 
       {showEmail && (
-        <div className="flex items-center">
+        <div className="flex items-start mb-4">
           <div className="flex items-center justify-center h-[42px] w-[42px] mr-3.5 rounded-[8.75px] bg-[oklch(0.962_0.044_156.743)]">
             <Mail className={getIconClasses()} />
           </div>
@@ -108,7 +107,7 @@ export default function ContactCard({
       )}
 
       {showAddress && (
-        <div className="flex items-center">
+        <div className="flex items-start mb-4">
           <div className="flex items-center justify-center h-[42px] w-[42px] mr-3.5 rounded-[8.75px] bg-[oklch(0.962_0.044_156.743)]">
             <MapPin className={getIconClasses()} />
           </div>
@@ -142,15 +141,15 @@ export default function ContactCard({
       )}
 
       {showHours && (
-        <div className="flex items-center">
-          <div className="flex items-center justify-center h-[42px] w-[42px] mr-3.5 rounded-[8.75px] bg-[oklch(0.962_0.044_156.743)]">
+        <div className="flex items-start">
+          <div className="flex items-center justify-center h-[42px] w-[42px] mr-3.5 rounded-[8.75px] bg-[oklch(0.962_0.044_156.743)] p-2.5">
             <Clock className={getIconClasses()} />
           </div>
           <div>
             {variant !== "hero" && <h4 className={textClasses.label}>Hours</h4>}
             <div className={`${textClasses.value} space-y-1`}>
               <p>Mon, Wed, Thu, Fri: {CLINIC_DATA.hours.detailed.monday}</p>
-              <p>Saturday: {CLINIC_DATA.hours.detailed.saturday}</p>
+              <p>Sat: {CLINIC_DATA.hours.detailed.saturday}</p>
               <p>Tue, Sun: {CLINIC_DATA.hours.detailed.tuesday}</p>
             </div>
           </div>

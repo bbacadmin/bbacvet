@@ -1,4 +1,3 @@
-import React from "react";
 import { Calendar } from "lucide-react";
 import ContactCard from "./ContactCard";
 
@@ -38,15 +37,15 @@ export default function Contact({ launchBooking }: ContactProps) {
                 </h4>
               </div>
               <p className="text-[oklch(0.527_0.154_150.069)] text-[12.25px] leading-[17.5px]">
-                All visits are by appointment only.{" "}
+                All visits are by appointment only. Call{" "}
                 <a
                   href="tel:+19297381230"
                   className="text-[oklch(0.448_0.119_151.328)] hover:text-[oklch(0.627_0.194_149.214)] transition-colors underline"
                 >
-                  Call (929) 738-1230 to schedule
-                </a>
-                . Please bring previous medical records and arrive 10 minutes
-                early for your appointment.
+                  (929) 738-1230
+                </a>{" "}
+                to schedule. Please bring previous medical records and arrive 10
+                minutes early for your appointment.
               </p>
             </div>
           </div>
@@ -68,7 +67,7 @@ export default function Contact({ launchBooking }: ContactProps) {
               </p>
               <button
                 onClick={() => launchBooking()}
-                className="btn-primary w-full mb-3.5"
+                className="btn-primary mb-3.5"
               >
                 Book Your Appointment
               </button>

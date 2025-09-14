@@ -1,4 +1,3 @@
-import React from "react";
 import { Phone, Mail, MapPin } from "lucide-react";
 import { CLINIC_DATA } from "../constants/clinicData";
 

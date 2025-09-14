@@ -134,7 +134,6 @@ body {
 
 .btn-pill:hover {
   background-color: var(--color-emerald-50);
-  transform: translateY(-1px);
 }
 
 /* ===== CARD COMPONENTS ===== */

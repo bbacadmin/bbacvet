@@ -1,4 +1,3 @@
-import React from "react";
 import { CLINIC_DATA } from "../constants/clinicData";
 import logoImg from "../assets/logo.png";
 

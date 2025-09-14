@@ -1,4 +1,3 @@
-import React from "react";
 import { Star } from "lucide-react";
 import ClinicInfo from "./ClinicInfo";
 import ContactCard from "./ContactCard";
@@ -24,7 +23,7 @@ export default function Hero({ launchBooking, scrollTo }: HeroProps) {
       aria-labelledby="hero-title"
     >
       <div className="content-wrapper">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-[42px] items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-[42px]">
           <div>
             <div className="flex items-center mb-[21px]">
               <ClinicInfo variant="hero" showName={false} showTagline={false} />
@@ -87,7 +86,7 @@ export default function Hero({ launchBooking, scrollTo }: HeroProps) {
             </div>
           </div>
           <div className="relative">
-            <div className="aspect-square md:aspect-auto md:h-[600px] shadow-[rgba(0,0,0,0)_0px_0px_0px_0px,rgba(0,0,0,0)_0px_0px_0px_0px,rgba(0,0,0,0)_0px_0px_0px_0px,rgba(0,0,0,0)_0px_0px_0px_0px,rgba(0,0,0,0.25)_0px_25px_50px_-12px] overflow-hidden rounded-[14px]">
+            <div className="aspect-square md:aspect-auto shadow-[rgba(0,0,0,0)_0px_0px_0px_0px,rgba(0,0,0,0)_0px_0px_0px_0px,rgba(0,0,0,0)_0px_0px_0px_0px,rgba(0,0,0,0)_0px_0px_0px_0px,rgba(0,0,0,0.25)_0px_25px_50px_-12px] overflow-hidden rounded-[14px]">
               <img
                 src={catImg}
                 alt="Adorable cat with bright eyes in a veterinary clinic setting"
