@@ -1,27 +1,19 @@
 import React from "react";
-import { Heart, Shield, Users, Star } from "lucide-react";
-import { CLINIC_DATA } from "../constants/clinicData";
+import { Star } from "lucide-react";
 import ClinicInfo from "./ClinicInfo";
 import ContactCard from "./ContactCard";
 import catImg from "../assets/cat.jpg";
 
 interface HeroProps {
   launchBooking: () => void;
-  scrollTo: (id: keyof typeof map) => void;
+  scrollTo: (id: string) => void;
 }
 
-const map = {
-  home: null,
-  services: null,
-  about: null,
-  contact: null,
-};
-
-export default function Hero({ launchBooking, scrollTo }: HeroProps) {
+const Hero = ({ launchBooking, scrollTo }: HeroProps) => {
   return (
     <section
       id="home"
-      className="relative bg-[linear-gradient(to_right_bottom,oklch(0.982_0.018_155.826)_0%,oklch(0.987_0.022_95.277)_100%)] py-[70px] md:py-28"
+      className="relative bg-[linear-gradient(to_right_bottom,theme(colors.brand.surface)_0%,theme(colors.brand.surfaceLight)_100%)] py-[70px] md:py-28"
       aria-labelledby="hero-title"
     >
       <div className="content-wrapper">
@@ -30,11 +22,11 @@ export default function Hero({ launchBooking, scrollTo }: HeroProps) {
             <div className="flex items-center mb-[21px]">
               <ClinicInfo variant="hero" showName={false} showTagline={false} />
               <div className="flex items-center">
-                <Star className="text-yellow-400 h-4 w-4" />
-                <Star className="text-yellow-400 h-4 w-4" />
-                <Star className="text-yellow-400 h-4 w-4" />
-                <Star className="text-yellow-400 h-4 w-4" />
-                <Star className="text-yellow-400 h-4 w-4" />
+                <Star className="text-yellow-400 h-4 w-4" fill="currentColor" />
+                <Star className="text-yellow-400 h-4 w-4" fill="currentColor" />
+                <Star className="text-yellow-400 h-4 w-4" fill="currentColor" />
+                <Star className="text-yellow-400 h-4 w-4" fill="currentColor" />
+                <Star className="text-yellow-400 h-4 w-4" fill="currentColor" />
                 <span className="text-slate-800 block ml-1.5">
                   New clinic, experienced care
                 </span>
@@ -44,9 +36,12 @@ export default function Hero({ launchBooking, scrollTo }: HeroProps) {
               Compassionate Care for Your Beloved Pets
             </h1>
             <p className="text-slate-800 text-base leading-6 max-w-md mb-7">
-              Welcome to Brighton Beach Animal Clinic, where your pet's health
-              and happiness are our top priority. Our experienced veterinary
-              team provides comprehensive care in a warm, welcoming environment.
+              <span className="flex items-center">
+                Welcome to Our New Clinic
+              </span>
+              where your pet&#39;s health and happiness are our top priority.
+              Our experienced veterinary team provides comprehensive care in a
+              warm, welcoming environment.
             </p>
             <div className="flex flex-col md:flex-row gap-3.5 mb-7">
               <button onClick={() => launchBooking()} className="btn-primary">
@@ -69,11 +64,11 @@ export default function Hero({ launchBooking, scrollTo }: HeroProps) {
                 showPhone={false}
                 showEmail={false}
                 showAddress={false}
-                showHours={true}
+                showHours
               />
               <ContactCard
                 variant="hero"
-                showPhone={true}
+                showPhone
                 showEmail={false}
                 showAddress={false}
                 showHours={false}
@@ -82,7 +77,7 @@ export default function Hero({ launchBooking, scrollTo }: HeroProps) {
                 variant="hero"
                 showPhone={false}
                 showEmail={false}
-                showAddress={true}
+                showAddress
                 showHours={false}
               />
             </div>
@@ -97,11 +92,11 @@ export default function Hero({ launchBooking, scrollTo }: HeroProps) {
             </div>
             <div className="absolute bg-white bottom-[-21px] left-[-21px] shadow-[rgba(0,0,0,0)_0px_0px_0px_0px,rgba(0,0,0,0)_0px_0px_0px_0px,rgba(0,0,0,0)_0px_0px_0px_0px,rgba(0,0,0,0)_0px_0px_0px_0px,rgba(0,0,0,0.1)_0px_20px_25px_-5px,rgba(0,0,0,0.1)_0px_8px_10px_-6px] flex flex-col gap-[21px] border p-[21px] rounded-[12.75px] border-solid border-black/10">
               <div className="text-center">
-                <p className="text-[oklch(0.627_0.194_149.214)] text-[26.25px] leading-[31.5px] mb-[7px]">
+                <p className="text-brand-primary text-[26.25px] leading-[31.5px] mb-[7px]">
                   2025
                 </p>
-                <p className="text-[oklch(0.446_0.03_256.802)]">Newly Opened</p>
-                <p className="text-[oklch(0.551_0.027_264.364)] text-[12.25px] leading-[17.5px]">
+                <p className="text-brand-muted">Newly Opened</p>
+                <p className="text-brand-textMuted text-[12.25px] leading-[17.5px]">
                   Fresh Start, Experienced Care
                 </p>
               </div>
@@ -111,4 +106,6 @@ export default function Hero({ launchBooking, scrollTo }: HeroProps) {
       </div>
     </section>
   );
-}
+};
+
+export default Hero;

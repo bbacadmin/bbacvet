@@ -8,7 +8,7 @@ interface FooterProps {
   launchBooking: () => void;
 }
 
-export default function Footer({ launchBooking }: FooterProps) {
+const Footer = ({ launchBooking }: FooterProps) => {
   return (
     <footer className="text-white bg-[oklch(0.21_0.034_264.665)] py-14">
       <div className="content-wrapper">
@@ -31,9 +31,9 @@ export default function Footer({ launchBooking }: FooterProps) {
             </h4>
             <ContactCard
               variant="footer"
-              showPhone={true}
-              showEmail={true}
-              showAddress={true}
+              showPhone
+              showEmail
+              showAddress
               showHours={false}
             />
           </div>
@@ -56,7 +56,7 @@ export default function Footer({ launchBooking }: FooterProps) {
             <div className="mb-3.5">
               <div className="text-[oklch(0.872_0.01_258.338)] space-y-1">
                 <p>Mon, Wed, Thu, Fri: {CLINIC_DATA.hours.detailed.monday}</p>
-                <p>Saturday: {CLINIC_DATA.hours.detailed.saturday}</p>
+                <p>Sat: {CLINIC_DATA.hours.detailed.saturday}</p>
                 <p>Tue, Sun: {CLINIC_DATA.hours.detailed.tuesday}</p>
               </div>
             </div>
@@ -99,4 +99,6 @@ export default function Footer({ launchBooking }: FooterProps) {
       </div>
     </footer>
   );
-}
+};
+
+export default Footer;

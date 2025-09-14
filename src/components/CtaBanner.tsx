@@ -1,5 +1,4 @@
 import React from "react";
-import { CLINIC_DATA } from "../constants/clinicData";
 import ContactLink from "./ContactLink";
 import ClinicInfo from "./ClinicInfo";
 import dog2Img from "../assets/dog2.jpg";
@@ -8,7 +7,7 @@ interface CtaBannerProps {
   launchBooking: () => void;
 }
 
-export default function CtaBanner({ launchBooking }: CtaBannerProps) {
+const CtaBanner = ({ launchBooking }: CtaBannerProps) => {
   return (
     <section className="relative bg-[linear-gradient(to_right,oklch(0.627_0.194_149.214)_0%,oklch(0.666_0.179_58.318)_100%)] overflow-hidden py-[70px]">
       <div className="absolute opacity-20 inset-0">
@@ -29,10 +28,10 @@ export default function CtaBanner({ launchBooking }: CtaBannerProps) {
             />
           </div>
           <h2 className="text-white text-[26.25px] leading-[31.5px] mb-[21px] md:text-[31.5px] md:leading-[35px]">
-            Your Pet's Health is Our Priority
+            Your Pet&#39;s Health is Our Priority
           </h2>
           <p className="text-[oklch(0.962_0.044_156.743)] text-[17.5px] leading-[24.5px] max-w-2xl mb-7 mx-auto">
-            Don't wait when it comes to your pet's health. Schedule an
+            Don&#39;t wait when it comes to your pet&#39;s health. Schedule an
             appointment today and experience the difference compassionate,
             professional veterinary care can make.
           </p>
@@ -79,4 +78,6 @@ export default function CtaBanner({ launchBooking }: CtaBannerProps) {
       </div>
     </section>
   );
-}
+};
+
+export default CtaBanner;

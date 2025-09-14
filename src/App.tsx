@@ -7,6 +7,13 @@ import Contact from "./components/Contact";
 import CtaBanner from "./components/CtaBanner";
 import Footer from "./components/Footer";
 
+// Extend Window interface to include YourVetBook
+declare global {
+  interface Window {
+    YourVetBook?: (clinicId: string, locationId?: string) => void;
+  }
+}
+
 // Constants
 const CLINIC_ID = "brightonbeachac"; // Clinic identifier
 const LOCATION_ID = "27743"; // Location identifier
@@ -28,7 +35,9 @@ const useSmoothScroll = () => {
 
   const scrollTo = (id: keyof typeof map.current) => {
     const el = map.current[id];
-    if (!el) return;
+    if (!el) {
+      return;
+    }
 
     // Clear any existing timeout
     if (scrollTimeoutRef.current) {
@@ -49,7 +58,7 @@ const useSmoothScroll = () => {
     window.addEventListener("keydown", (e) => {
       if (
         ["ArrowUp", "ArrowDown", "PageUp", "PageDown", "Home", "End"].includes(
-          e.key
+          e.key,
         )
       ) {
         handleUserScroll();
@@ -95,7 +104,7 @@ const useSmoothScroll = () => {
   return scrollTo;
 };
 
-export default function App() {
+const App = () => {
   const scrollTo = useSmoothScroll();
 
   // Mobile menu state
@@ -106,7 +115,9 @@ export default function App() {
   React.useEffect(() => {
     const header = document.getElementById("site-header");
     const onScroll = () => {
-      if (!header) return;
+      if (!header) {
+        return;
+      }
       header.classList.toggle("shadow", window.scrollY > 8);
     };
     window.addEventListener("scroll", onScroll, { passive: true });
@@ -116,11 +127,13 @@ export default function App() {
       (entries) => {
         entries.forEach((e) => e.isIntersecting && setActive(e.target.id));
       },
-      { rootMargin: "-40% 0px -55% 0px", threshold: 0.01 }
+      { rootMargin: "-40% 0px -55% 0px", threshold: 0.01 },
     );
     ids.forEach((id) => {
       const el = document.getElementById(id);
-      if (el) obs.observe(el);
+      if (el) {
+        obs.observe(el);
+      }
     });
     return () => {
       window.removeEventListener("scroll", onScroll);
@@ -132,10 +145,11 @@ export default function App() {
   React.useEffect(() => {
     if (
       document.querySelector(
-        'script[src="https://book.yourpets.link/widget.js"]'
+        "script[src=\"https://book.yourpets.link/widget.js\"]",
       )
-    )
+    ) {
       return;
+    }
     const s = document.createElement("script");
     s.src = "https://book.yourpets.link/widget.js";
     s.async = true;
@@ -143,8 +157,10 @@ export default function App() {
   }, []);
 
   const launchBooking = () => {
-    const fn = (window as any).YourVetBook;
-    if (typeof fn === "function") fn(CLINIC_ID, LOCATION_ID);
+    const fn = window.YourVetBook;
+    if (typeof fn === "function") {
+      fn(CLINIC_ID, LOCATION_ID);
+    }
   };
 
   return (
@@ -166,4 +182,6 @@ export default function App() {
       </main>
     </div>
   );
-}
+};
+
+export default App;

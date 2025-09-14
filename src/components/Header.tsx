@@ -1,6 +1,4 @@
-import React from "react";
 import { Menu, X } from "lucide-react";
-import { CLINIC_DATA } from "../constants/clinicData";
 import ClinicInfo from "./ClinicInfo";
 import ContactLink from "./ContactLink";
 
@@ -8,29 +6,22 @@ interface HeaderProps {
   mobileMenuOpen: boolean;
   setMobileMenuOpen: (open: boolean) => void;
   active: string;
-  scrollTo: (id: keyof typeof map) => void;
+  scrollTo: (id: string) => void;
   launchBooking: () => void;
 }
-
-const map = {
-  home: null,
-  services: null,
-  about: null,
-  contact: null,
-};
 
 const navItem = (
   id: string,
   label: string,
   active: string,
-  scrollTo: (id: keyof typeof map) => void
+  scrollTo: (id: string) => void,
 ) => (
   <a
     key={id}
     href={`#${id}`}
     onClick={(e) => {
       e.preventDefault();
-      scrollTo(id as any);
+      scrollTo(id);
     }}
     className={`nav-link ${active === id ? "active" : ""}`}
   >
@@ -38,13 +29,13 @@ const navItem = (
   </a>
 );
 
-export default function Header({
+const Header = ({
   mobileMenuOpen,
   setMobileMenuOpen,
   active,
   scrollTo,
   launchBooking,
-}: HeaderProps) {
+}: HeaderProps) => {
   return (
     <>
       {/* Skip Link for Accessibility */}
@@ -98,7 +89,7 @@ export default function Header({
                 href={`#${id}`}
                 onClick={(e) => {
                   e.preventDefault();
-                  scrollTo(id as any);
+                  scrollTo(id);
                   setMobileMenuOpen(false);
                 }}
                 className={`mobile-nav-link ${active === id ? "active" : ""}`}
@@ -123,4 +114,6 @@ export default function Header({
       </div>
     </>
   );
-}
+};
+
+export default Header;

@@ -51,6 +51,7 @@ body {
     "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   line-height: 1.5;
   color: var(--color-slate-800);
+  font-size: 18px;
 }
 
 /* ===== LAYOUT COMPONENTS ===== */
@@ -134,7 +135,6 @@ body {
 
 .btn-pill:hover {
   background-color: var(--color-emerald-50);
-  transform: translateY(-1px);
 }
 
 /* ===== CARD COMPONENTS ===== */
@@ -307,7 +307,7 @@ body {
 }
 
 .booking-note {
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   color: var(--color-emerald-600);
 }
 
@@ -350,7 +350,7 @@ body {
 }
 
 .footer-brand-subtitle {
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   color: var(--color-gray-400);
 }
 
@@ -440,7 +440,7 @@ body {
   gap: var(--spacing-sm);
   justify-content: space-between;
   padding: var(--spacing-lg) 0;
-  font-size: 0.75rem;
+  font-size: 0.875rem;
   color: var(--color-gray-400);
 }
 
