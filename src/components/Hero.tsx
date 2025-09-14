@@ -1,15 +1,8 @@
 import React from "react";
-import {
-  Heart,
-  Shield,
-  Users,
-  Star,
-  Phone,
-  Mail,
-  MapPin,
-  Clock,
-} from "lucide-react";
-import logoImg from "../assets/logo.png";
+import { Heart, Shield, Users, Star } from "lucide-react";
+import { CLINIC_DATA } from "../constants/clinicData";
+import ClinicInfo from "./ClinicInfo";
+import ContactCard from "./ContactCard";
 import catImg from "../assets/cat.jpg";
 
 interface HeroProps {
@@ -35,13 +28,7 @@ export default function Hero({ launchBooking, scrollTo }: HeroProps) {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-[42px] items-center">
           <div>
             <div className="flex items-center mb-[21px]">
-              <div className="flex items-center justify-center h-14 w-14 mr-3.5">
-                <img
-                  src={logoImg}
-                  alt="Brighton Beach Animal Clinic Logo"
-                  className="h-full max-w-full object-contain w-full"
-                />
-              </div>
+              <ClinicInfo variant="hero" showName={false} showTagline={false} />
               <div className="flex items-center">
                 <Star className="text-yellow-400 h-4 w-4" />
                 <Star className="text-yellow-400 h-4 w-4" />
@@ -77,54 +64,27 @@ export default function Hero({ launchBooking, scrollTo }: HeroProps) {
               </a>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-              <div className="card card-padding-sm">
-                <div className="flex items-start">
-                  <Clock className="text-[oklch(0.627_0.194_149.214)] h-[21px] w-[21px] mr-[10.5px] mt-[2px]" />
-                  <div>
-                    <p className="text-[oklch(0.21_0.034_264.665)]">
-                      <span className="text-[oklch(0.551_0.027_264.364)] text-[14px] leading-[20px]">
-                        Hours:
-                      </span>
-                      <br />
-                      <span className="text-[oklch(0.446_0.03_256.802)] text-[13px] leading-[18px]">
-                        Mon-Fri: 9AM-6PM
-                      </span>
-                    </p>
-                  </div>
-                </div>
-              </div>
-              <a className="card card-padding-sm" href="tel:+19297381230">
-                <div className="flex items-start">
-                  <Phone className="text-[oklch(0.627_0.194_149.214)] h-[21px] w-[21px] mr-[10.5px] mt-[2px]" />
-                  <div>
-                    <p className="text-[oklch(0.21_0.034_264.665)]">
-                      <span className="text-[oklch(0.551_0.027_264.364)] text-[14px] leading-[20px]">
-                        Call Us:
-                      </span>
-                      <br />
-                      <span className="text-[oklch(0.446_0.03_256.802)] text-[13px] leading-[18px]">
-                        (929) 738-1230
-                      </span>
-                    </p>
-                  </div>
-                </div>
-              </a>
-              <div className="card card-padding-sm">
-                <div className="flex items-start">
-                  <MapPin className="text-[oklch(0.627_0.194_149.214)] h-[21px] w-[21px] mr-[10.5px] mt-[2px]" />
-                  <div>
-                    <p className="text-[oklch(0.21_0.034_264.665)]">
-                      <span className="text-[oklch(0.551_0.027_264.364)] text-[14px] leading-[20px]">
-                        Location:
-                      </span>
-                      <br />
-                      <span className="text-[oklch(0.446_0.03_256.802)] text-[13px] leading-[18px]">
-                        Brighton Beach
-                      </span>
-                    </p>
-                  </div>
-                </div>
-              </div>
+              <ContactCard
+                variant="hero"
+                showPhone={false}
+                showEmail={false}
+                showAddress={false}
+                showHours={true}
+              />
+              <ContactCard
+                variant="hero"
+                showPhone={true}
+                showEmail={false}
+                showAddress={false}
+                showHours={false}
+              />
+              <ContactCard
+                variant="hero"
+                showPhone={false}
+                showEmail={false}
+                showAddress={true}
+                showHours={false}
+              />
             </div>
           </div>
           <div className="relative">

@@ -1,7 +1,8 @@
 import React from "react";
-import { Phone } from "lucide-react";
-import logoImg from "../assets/logo.png";
-import dogImg2 from "../assets/dog2.jpg";
+import { CLINIC_DATA } from "../constants/clinicData";
+import ContactLink from "./ContactLink";
+import ClinicInfo from "./ClinicInfo";
+import dog2Img from "../assets/dog2.jpg";
 
 interface CtaBannerProps {
   launchBooking: () => void;
@@ -12,7 +13,7 @@ export default function CtaBanner({ launchBooking }: CtaBannerProps) {
     <section className="relative bg-[linear-gradient(to_right,oklch(0.627_0.194_149.214)_0%,oklch(0.666_0.179_58.318)_100%)] overflow-hidden py-[70px]">
       <div className="absolute opacity-20 inset-0">
         <img
-          src={dogImg2}
+          src={dog2Img}
           alt="Happy golden retriever dog smiling at camera in a veterinary setting"
           className="h-full max-w-full object-cover w-full"
         />
@@ -20,10 +21,11 @@ export default function CtaBanner({ launchBooking }: CtaBannerProps) {
       <div className="relative max-w-[1120px] text-center mx-auto px-3.5 md:px-7">
         <div className="max-w-[784px] mx-auto">
           <div className="flex items-center justify-center h-[70px] w-[70px] mb-[21px] mx-auto p-3.5 rounded-[3.35544e+07px] bg-white">
-            <img
-              src={logoImg}
-              alt="Brighton Beach Animal Clinic Logo"
-              className="h-full max-w-full object-contain w-full"
+            <ClinicInfo
+              variant="hero"
+              showName={false}
+              showTagline={false}
+              logoClassName="h-full max-w-full object-contain w-full"
             />
           </div>
           <h2 className="text-white text-[26.25px] leading-[31.5px] mb-[21px] md:text-[31.5px] md:leading-[35px]">
@@ -38,10 +40,11 @@ export default function CtaBanner({ launchBooking }: CtaBannerProps) {
             <button onClick={() => launchBooking()} className="btn-pill">
               Book Appointment Now
             </button>
-            <a href="tel:+19297381230" className="btn-pill border border-white">
-              <Phone className="h-3.5 w-3.5 mr-[7px]" />
-              Call (929) 738-1230
-            </a>
+            <ContactLink
+              type="phone"
+              variant="cta"
+              className="btn-pill border border-white"
+            />
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-7">
             <div>

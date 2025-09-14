@@ -1,5 +1,7 @@
 import React from "react";
-import { Phone, Mail, MapPin, Clock, Calendar } from "lucide-react";
+import { Calendar } from "lucide-react";
+import { CLINIC_DATA } from "../constants/clinicData";
+import ContactCard from "./ContactCard";
 
 interface ContactProps {
   launchBooking: () => void;
@@ -27,70 +29,7 @@ export default function Contact({ launchBooking }: ContactProps) {
               Get in Touch
             </h3>
             <div className="mb-7">
-              <div className="flex items-start mb-3.5">
-                <div className="flex items-center justify-center h-[42px] w-[42px] mr-3.5 rounded-[8.75px] bg-[oklch(0.962_0.044_156.743)]">
-                  <Phone className="text-[oklch(0.627_0.194_149.214)] h-[17.5px] w-[17.5px]" />
-                </div>
-                <div>
-                  <h4 className="text-[oklch(0.21_0.034_264.665)] mb-[3.5px]">
-                    Phone
-                  </h4>
-                  <a
-                    href="tel:+19297381230"
-                    className="text-[oklch(0.446_0.03_256.802)] hover:text-[oklch(0.627_0.194_149.214)] transition-colors"
-                  >
-                    (929) 738-1230
-                  </a>
-                </div>
-              </div>
-              <div className="flex items-start mb-3.5">
-                <div className="flex items-center justify-center h-[42px] w-[42px] mr-3.5 rounded-[8.75px] bg-[oklch(0.962_0.044_156.743)]">
-                  <Mail className="text-[oklch(0.627_0.194_149.214)] h-[17.5px] w-[17.5px]" />
-                </div>
-                <div>
-                  <h4 className="text-[oklch(0.21_0.034_264.665)] mb-[3.5px]">
-                    Email
-                  </h4>
-                  <p className="text-[oklch(0.446_0.03_256.802)]">
-                    bbacvet@gmail.com
-                  </p>
-                  <p className="text-[oklch(0.551_0.027_264.364)] text-[12.25px] leading-[17.5px]">
-                    We'll respond within one business day
-                  </p>
-                </div>
-              </div>
-              <div className="flex items-start mb-3.5">
-                <div className="flex items-center justify-center h-[42px] w-[42px] mr-3.5 rounded-[8.75px] bg-[oklch(0.962_0.044_156.743)]">
-                  <MapPin className="text-[oklch(0.627_0.194_149.214)] h-[17.5px] w-[17.5px]" />
-                </div>
-                <div>
-                  <h4 className="text-[oklch(0.21_0.034_264.665)] mb-[3.5px]">
-                    Address
-                  </h4>
-                  <p className="text-[oklch(0.446_0.03_256.802)]">
-                    122 Brighton 11th Street
-                  </p>
-                  <p className="text-[oklch(0.551_0.027_264.364)] text-[12.25px] leading-[17.5px]">
-                    Brooklyn, NY 11235
-                  </p>
-                </div>
-              </div>
-              <div className="flex items-start">
-                <div className="flex items-center justify-center h-[42px] w-[42px] mr-3.5 rounded-[8.75px] bg-[oklch(0.962_0.044_156.743)]">
-                  <Clock className="text-[oklch(0.627_0.194_149.214)] h-[17.5px] w-[17.5px]" />
-                </div>
-                <div>
-                  <h4 className="text-[oklch(0.21_0.034_264.665)] mb-[3.5px]">
-                    Hours
-                  </h4>
-                  <p className="text-[oklch(0.446_0.03_256.802)]">
-                    Mon-Fri: 9AM-6PM
-                  </p>
-                  <p className="text-[oklch(0.551_0.027_264.364)] text-[12.25px] leading-[17.5px]">
-                    Closed Weekends
-                  </p>
-                </div>
-              </div>
+              <ContactCard variant="contact" />
             </div>
             <div className="bg-[oklch(0.982_0.018_155.826)] gap-[21px] flex flex-col border p-[21px] rounded-[12.75px] border-solid border-[oklch(0.925_0.084_155.995)]">
               <div className="flex items-center">
@@ -134,15 +73,6 @@ export default function Contact({ launchBooking }: ContactProps) {
               >
                 Book Your Appointment
               </button>
-              <p className="text-[oklch(0.551_0.027_264.364)] text-[12.25px] leading-[17.5px]">
-                Or{" "}
-                <a
-                  href="tel:+19297381230"
-                  className="text-[oklch(0.551_0.027_264.364)] hover:text-[oklch(0.627_0.194_149.214)] transition-colors underline"
-                >
-                  call us at (929) 738-1230 to schedule over the phone
-                </a>
-              </p>
             </div>
             <div className="bg-[oklch(0.987_0.022_95.277)] p-[21px] rounded-[8.75px]">
               <h5 className="text-[oklch(0.21_0.034_264.665)] mb-[10.5px]">

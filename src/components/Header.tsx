@@ -1,6 +1,8 @@
 import React from "react";
-import { Phone, Menu, X } from "lucide-react";
-import logoImg from "../assets/logo.png";
+import { Menu, X } from "lucide-react";
+import { CLINIC_DATA } from "../constants/clinicData";
+import ClinicInfo from "./ClinicInfo";
+import ContactLink from "./ContactLink";
 
 interface HeaderProps {
   mobileMenuOpen: boolean;
@@ -54,37 +56,14 @@ export default function Header({
       <header id="site-header" className="site-header" role="banner">
         <div className="content-wrapper">
           <div className="header-content">
-            <a
-              href="#home"
-              onClick={(e) => {
-                e.preventDefault();
-                scrollTo("home");
-              }}
-              className="logo-link"
-            >
-              <img
-                src={logoImg}
-                alt="Brighton Beach Animal Clinic Logo"
-                className="logo-image"
-              />
-              <div className="logo-text">
-                <span className="logo-title">Brighton Beach Animal Clinic</span>
-                <span className="logo-subtitle">Veterinary Care</span>
-              </div>
-            </a>
+            <ClinicInfo variant="header" onClick={() => scrollTo("home")} />
             <nav className="main-nav">
               {navItem("home", "Home", active, scrollTo)}
               {navItem("services", "Services", active, scrollTo)}
               {navItem("about", "About", active, scrollTo)}
               {navItem("contact", "Contact", active, scrollTo)}
               <div className="items-center hidden md:flex">
-                <a
-                  href="tel:+19297381230"
-                  className="text-slate-800 items-center flex mr-3.5 hover:text-emerald-600 transition-colors"
-                >
-                  <Phone className="icon-md text-emerald-600 mr-1.5" />
-                  <span className="text-xs">(929) 738-1230</span>
-                </a>
+                <ContactLink type="phone" variant="header" />
                 <button onClick={() => launchBooking()} className="btn-primary">
                   Book Appointment
                 </button>
@@ -103,13 +82,7 @@ export default function Header({
       {/* Mobile Menu Overlay */}
       <div className={`mobile-menu-overlay ${mobileMenuOpen ? "open" : ""}`}>
         <div className="mobile-menu-header">
-          <div className="logo-link">
-            <img src={logoImg} alt="bbacvet logo" className="logo-image" />
-            <div className="logo-text">
-              <span className="logo-title">bbacvet.com</span>
-              <span className="logo-subtitle">Veterinary Care</span>
-            </div>
-          </div>
+          <ClinicInfo variant="mobile" />
           <button
             onClick={() => setMobileMenuOpen(false)}
             className="mobile-menu-close"
@@ -135,10 +108,7 @@ export default function Header({
             ))}
           </div>
           <div className="mobile-menu-contact">
-            <a href="tel:+19297381230" className="mobile-contact-item">
-              <Phone className="icon-md text-green-icon" />
-              (929) 738-1230
-            </a>
+            <ContactLink type="phone" variant="mobile" />
             <button
               onClick={() => {
                 launchBooking();

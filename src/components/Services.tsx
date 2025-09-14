@@ -107,7 +107,7 @@ export default function Services({ launchBooking }: ServicesProps) {
                   </h4>
                 </div>
                 <div className="pb-[21px] px-[21px]">
-                  <p className="text-[oklch(0.446_0.03_256.802)] mb-3.5">
+                  <p className="text-[oklch(0.446_0.03_256.802)] mb-7">
                     {service.description}
                   </p>
                   <ul className="list-none pl-0">

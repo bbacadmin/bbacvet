@@ -58,7 +58,7 @@ export default function About() {
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-[42px] mb-[70px] items-center">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-[42px] mb-[70px] items-start">
           <div>
             <h3 className="text-[oklch(0.21_0.034_264.665)] text-[21px] leading-7 mb-[21px]">
               Welcome to Our New Clinic
