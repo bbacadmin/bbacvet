@@ -3,34 +3,54 @@ module.exports = {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
-      // SEMANTIC COLOR SYSTEM (Replaces OKLCH values)
+      // WARM NATURAL PET-FRIENDLY COLOR PALETTE
       colors: {
-        // Brand Primary Colors
+        // Brand Primary Colors - Warm Greens
         primary: {
-          50: "#ecfdf5",
-          100: "#d1fae5",
-          500: "#10b981",
-          600: "#059669",
-          700: "#047857",
-          800: "#065f46",
-          900: "#064e3b",
+          50: "#f7f9f7",
+          100: "#e8f0e8",
+          200: "#d1e0d1",
+          300: "#b8cdb8",
+          400: "#9ba98d", // Soft Green
+          500: "#8b967f",
+          600: "#7a836e",
+          700: "#6a705d",
+          800: "#4b5842", // Dark Olive Green
+          900: "#3d4735",
         },
         // Semantic Text Colors
         text: {
-          primary: "#1e293b", // slate-800 (main headings)
-          secondary: "#64748b", // slate-500 (body text)
-          muted: "#94a3b8", // slate-400 (subtle text)
-          accent: "#10b981", // emerald-500 (links/highlights)
-          light: "#f1f5f9", // slate-100 (light backgrounds)
-          inverse: "#ffffff", // white (on dark backgrounds)
+          primary: "#4b5842", // Dark Olive Green (main headings)
+          secondary: "#666666", // Muted Gray (body text)
+          muted: "#8b967f", // Soft Green (subtle text)
+          accent: "#9ba98d", // Soft Green (links/highlights)
+          light: "#ffffff", // White (light backgrounds)
+          inverse: "#ffffff", // White (on dark backgrounds)
         },
         // Semantic Background Colors
         bg: {
-          primary: "#ffffff", // white
-          secondary: "#f8fafc", // slate-50
-          tertiary: "#f1f5f9", // slate-100
-          dark: "#0f172a", // slate-900
-          accent: "#ecfdf5", // emerald-50
+          primary: "#ffffff", // White
+          secondary: "#f7f9f7", // Very light green
+          tertiary: "#efe8dd", // Beige
+          dark: "#4b5842", // Dark Olive Green
+          accent: "#e8f0e8", // Light green accent
+        },
+        // Neutral Beige Background
+        beige: "#efe8dd",
+        // Lighter brand colors for icon backgrounds
+        brandLight: "#f7f9f7", // Very light green for icon backgrounds
+        // Warm Gray Scale
+        gray: {
+          50: "#fafafa",
+          100: "#f5f5f5",
+          200: "#e5e5e5",
+          300: "#d4d4d4",
+          400: "#a3a3a3",
+          500: "#737373",
+          600: "#666666", // Muted Gray
+          700: "#525252",
+          800: "#404040",
+          900: "#262626",
         },
         // Legacy colors (for gradual migration)
         emerald: {
@@ -47,11 +67,6 @@ module.exports = {
         },
         slate: {
           800: "#1e293b",
-        },
-        gray: {
-          200: "#e5e7eb",
-          400: "#9ca3af",
-          700: "#374151",
         },
         dark: "#0f172a",
         yellow: {

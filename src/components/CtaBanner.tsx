@@ -1,5 +1,4 @@
 import ContactLink from "./ContactLink";
-import ClinicInfo from "./ClinicInfo";
 import dog2Img from "../assets/dog2.jpg";
 
 interface CtaBannerProps {
@@ -8,7 +7,7 @@ interface CtaBannerProps {
 
 export default function CtaBanner({ launchBooking }: CtaBannerProps) {
   return (
-    <section className="relative bg-gradient-to-r from-emerald-600 via-emerald-500 to-orange-400 overflow-hidden py-24">
+    <section className="relative bg-gradient-to-r from-primary-800 via-primary-600 to-primary-400 overflow-hidden py-24">
       <div className="absolute opacity-10 inset-0">
         <img
           src={dog2Img}
@@ -18,14 +17,6 @@ export default function CtaBanner({ launchBooking }: CtaBannerProps) {
       </div>
       <div className="relative content-wrapper text-center">
         <div className="max-w-4xl mx-auto">
-          <div className="flex items-center justify-center h-20 w-20 mb-8 mx-auto card-modern p-4">
-            <ClinicInfo
-              variant="hero"
-              showName={false}
-              showTagline={false}
-              logoClassName="h-full max-w-full object-contain w-full"
-            />
-          </div>
           <h2 className="text-white text-4xl md:text-5xl mb-6 leading-tight font-bold">
             Your Pet's Health is Our Priority
           </h2>
@@ -34,17 +25,14 @@ export default function CtaBanner({ launchBooking }: CtaBannerProps) {
             appointment today and experience the difference compassionate,
             professional veterinary care can make.
           </p>
-          <div className="flex flex-col md:flex-row gap-6 mb-16 justify-center">
-            <button
-              onClick={() => launchBooking()}
-              className="btn-secondary-modern bg-white text-primary border-white"
-            >
+          <div className="flex flex-col md:flex-row gap-6 mb-16 justify-center items-center">
+            <button onClick={() => launchBooking()} className="btn-pill w-auto">
               Book Appointment Now
             </button>
             <ContactLink
               type="phone"
               variant="cta"
-              className="btn-ghost-modern border-white text-white"
+              className="btn-pill w-auto"
             />
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

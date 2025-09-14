@@ -1,5 +1,4 @@
 import { Star } from "lucide-react";
-import ClinicInfo from "./ClinicInfo";
 import ContactCard from "./ContactCard";
 import catImg from "../assets/cat.jpg";
 
@@ -26,8 +25,7 @@ export default function Hero({ launchBooking, scrollTo }: HeroProps) {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
           <div>
             <div className="flex items-center mb-8">
-              <ClinicInfo variant="hero" showName={false} showTagline={false} />
-              <div className="flex items-center ml-4">
+              <div className="flex items-center">
                 <Star className="text-yellow-400 h-5 w-5" fill="currentColor" />
                 <Star className="text-yellow-400 h-5 w-5" fill="currentColor" />
                 <Star className="text-yellow-400 h-5 w-5" fill="currentColor" />

@@ -11,8 +11,8 @@ export default function Footer({ launchBooking }: FooterProps) {
   return (
     <footer className="text-white bg-gray-900 py-20">
       <div className="content-wrapper">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
-          <div>
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-12">
+          <div className="md:col-span-2">
             <ClinicInfo variant="footer" className="mb-6" />
             <p className="text-white/80 mb-8 leading-relaxed">
               {CLINIC_DATA.description}
@@ -36,26 +36,16 @@ export default function Footer({ launchBooking }: FooterProps) {
               showHours={false}
             />
           </div>
-          <div>
+          <div className="md:col-span-1">
             <h4 className="text-xl font-semibold mb-8 leading-tight">
               Our Services
             </h4>
             <ul className="text-white/80 space-y-4">
-              <li className="hover:text-white transition-colors cursor-pointer">
-                Veterinary Care
-              </li>
-              <li className="hover:text-white transition-colors cursor-pointer">
-                Wellness Plans
-              </li>
-              <li className="hover:text-white transition-colors cursor-pointer">
-                Vaccines
-              </li>
-              <li className="hover:text-white transition-colors cursor-pointer">
-                Surgery
-              </li>
-              <li className="hover:text-white transition-colors cursor-pointer">
-                Dentistry
-              </li>
+              <li className="cursor-pointer">Veterinary Care</li>
+              <li className="cursor-pointer">Wellness Plans</li>
+              <li className="cursor-pointer">Vaccines</li>
+              <li className="cursor-pointer">Surgery</li>
+              <li className="cursor-pointer">Dentistry</li>
             </ul>
           </div>
           <div>
@@ -80,7 +70,7 @@ export default function Footer({ launchBooking }: FooterProps) {
               <div className="flex">
                 <a
                   href={CLINIC_DATA.social.instagram.url}
-                  className="flex items-center justify-center bg-white/10 hover:bg-primary h-12 w-12 rounded-xl transition-all duration-300 hover:scale-110"
+                  className="flex items-center justify-center bg-white/10 h-12 w-12 rounded-xl"
                 >
                   <Instagram className="h-5 w-5" />
                 </a>
@@ -96,18 +86,9 @@ export default function Footer({ launchBooking }: FooterProps) {
               © 2025 bbacvet.com. All rights reserved.
             </p>
             <div className="text-white/60 text-sm flex flex-wrap gap-6">
-              <button className="hover:text-white transition-colors">
-                Privacy Policy
-              </button>
-              <button className="hover:text-white transition-colors">
-                Terms of Service
-              </button>
-              <button
-                onClick={() => launchBooking()}
-                className="hover:text-white transition-colors"
-              >
-                Book Appointment
-              </button>
+              <button>Privacy Policy</button>
+              <button>Terms of Service</button>
+              <button onClick={() => launchBooking()}>Book Appointment</button>
             </div>
           </div>
         </div>

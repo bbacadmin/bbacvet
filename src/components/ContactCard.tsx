@@ -159,11 +159,21 @@ export default function ContactCard({
                   : "text-primary hover:text-primary-dark transition-colors"
               }`}
             >
-              <p className="text-text-secondary">
+              <p
+                className={
+                  variant === "footer" ? "text-white/80" : "text-text-secondary"
+                }
+              >
                 {CLINIC_DATA.contact.address.street}
               </p>
               {variant !== "hero" && (
-                <p className="text-text-muted text-sm leading-4">
+                <p
+                  className={
+                    variant === "footer"
+                      ? "text-white/60 text-sm leading-4"
+                      : "text-text-muted text-sm leading-4"
+                  }
+                >
                   {CLINIC_DATA.contact.address.city}
                 </p>
               )}

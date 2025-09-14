@@ -43,7 +43,7 @@ export default function ClinicInfo({
       case "footer":
         return {
           container: "flex items-center mb-[21px]",
-          logo: "brightness-0 invert-[1] h-full max-w-full object-contain w-full",
+          logo: "brightness-0 invert-[1] h-20 w-20 object-contain mr-4",
           name: "text-[17.5px] leading-[24.5px]",
           tagline:
             "text-[oklch(0.872_0.01_258.338)] text-[12.25px] leading-[17.5px]",
@@ -77,7 +77,7 @@ export default function ClinicInfo({
   return (
     <div className={`${classes.container} ${className}`} {...containerProps}>
       {showLogo && (
-        <div className="flex items-center justify-center h-14 w-14 mr-3.5">
+        <div className="flex items-center justify-center mr-3.5">
           <img
             src={logoImg}
             alt={`${CLINIC_DATA.name} Logo`}

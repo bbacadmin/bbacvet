@@ -60,20 +60,20 @@ export default function ContactLink({
     switch (variant) {
       case "header":
         return {
-          link: "text-slate-800 items-center flex mr-3.5 hover:text-emerald-600 transition-colors",
-          icon: "icon-md text-emerald-600 mr-1.5",
+          link: "text-primary items-center flex mr-3.5 hover:text-primary-dark transition-colors",
+          icon: "icon-md text-primary mr-1.5",
           text: "text-xs",
         };
       case "mobile":
         return {
           link: "mobile-contact-item",
-          icon: "icon-md text-green-icon",
+          icon: "icon-md text-primary",
           text: "",
         };
       case "cta":
         return {
           link: "btn-pill border border-white",
-          icon: "h-3.5 w-3.5 mr-[7px]",
+          icon: "h-3.5 w-3.5 mr-[7px] text-neutral-light",
           text: "",
         };
       default:
