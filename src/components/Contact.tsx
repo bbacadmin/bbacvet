@@ -9,7 +9,11 @@ export default function Contact({ launchBooking }: ContactProps) {
   return (
     <section
       id="contact"
-      className="bg-gradient-to-b from-slate-50 to-white py-20"
+      className="py-20"
+      style={{
+        background:
+          "linear-gradient(to bottom, var(--color-green-50), transparent)",
+      }}
     >
       <div className="content-wrapper">
         <div className="text-center mb-20">

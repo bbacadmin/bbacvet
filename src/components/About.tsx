@@ -38,7 +38,14 @@ const features: Feature[] = [
 
 export default function About() {
   return (
-    <section id="about" className="bg-white py-24">
+    <section
+      id="about"
+      className="py-24"
+      style={{
+        background:
+          "linear-gradient(to bottom, var(--color-green-100), transparent)",
+      }}
+    >
       <div className="content-wrapper">
         <div className="text-center mb-20">
           <div className="flex items-center justify-center h-20 w-20 mb-8 mx-auto card-modern p-4">

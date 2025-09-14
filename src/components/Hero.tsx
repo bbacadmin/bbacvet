@@ -18,7 +18,11 @@ export default function Hero({ launchBooking, scrollTo }: HeroProps) {
   return (
     <section
       id="home"
-      className="relative bg-gradient-to-br from-white to-slate-50 py-12 md:py-20"
+      className="relative py-12 md:py-20"
+      style={{
+        background:
+          "linear-gradient(to bottom, var(--color-green-300), var(--color-green-100))",
+      }}
       aria-labelledby="hero-title"
     >
       <div className="content-wrapper">
@@ -70,7 +74,10 @@ export default function Hero({ launchBooking, scrollTo }: HeroProps) {
                 alt="Adorable cat with bright eyes in a veterinary clinic setting"
                 className="h-full max-w-full object-cover w-full"
               />
-              <div className="absolute bg-white bottom-4 left-4 shadow-xl flex flex-col gap-6 border p-6 md:p-8 md:pb-16 rounded-2xl border-solid border-gray-200 card-modern md:min-h-[200px]">
+              <div
+                className="absolute bottom-4 left-4 shadow-xl flex flex-col gap-6 border p-6 md:p-8 md:pb-16 rounded-2xl border-solid border-gray-200 card-modern md:min-h-[200px]"
+                style={{ background: "var(--color-neutral-light)" }}
+              >
                 <div className="text-center">
                   <p className="text-primary text-3xl font-bold mb-2">2025</p>
                   <p className="text-secondary font-medium">Newly Opened</p>
@@ -85,7 +92,7 @@ export default function Hero({ launchBooking, scrollTo }: HeroProps) {
       </div>
 
       {/* Full width contact cards */}
-      <div className="bg-gradient-to-r from-slate-50 to-white pb-4">
+      <div className="pb-4">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
             <ContactCard

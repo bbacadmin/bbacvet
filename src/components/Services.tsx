@@ -79,7 +79,11 @@ export default function Services({ launchBooking }: ServicesProps) {
   return (
     <section
       id="services"
-      className="bg-gradient-to-b from-white to-slate-50 py-20"
+      className="py-20"
+      style={{
+        background:
+          "linear-gradient(to bottom, var(--color-green-200), var(--color-green-50))",
+      }}
     >
       <div className="content-wrapper">
         <div className="text-center mb-12">

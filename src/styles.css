@@ -9,9 +9,9 @@
   --color-accent: #9ba98d; /* Soft Green */
   --color-accent-light: #b8cdb8; /* Lighter soft green */
   --color-accent-dark: #7a836e; /* Darker soft green */
-  --color-neutral: #efe8dd; /* Beige background */
-  --color-neutral-light: #ffffff; /* Pure white */
-  --color-neutral-dark: #d4d4d4; /* Light gray */
+  --color-neutral: #d4c4a8; /* Darker beige background */
+  --color-neutral-light: #f0f0f0; /* Light gray instead of pure white */
+  --color-neutral-dark: #b8b8b8; /* Darker gray */
   --color-text-primary: #4b5842; /* Dark Olive Green */
   --color-text-secondary: #666666; /* Muted Gray */
   --color-text-muted: #8b967f; /* Soft Green */
@@ -146,7 +146,7 @@ body {
 
 /* ===== MODERN CARD SYSTEM ===== */
 .card-modern {
-  background: var(--color-neutral-light);
+  background: rgba(209, 224, 209, 0.3);
   border-radius: var(--radius-xl);
   border: 1px solid var(--color-neutral-dark);
   box-shadow: var(--shadow-sm);
@@ -154,7 +154,7 @@ body {
 }
 
 .card-elevated {
-  background: var(--color-neutral-light);
+  background: rgba(209, 224, 209, 0.4);
   border-radius: var(--radius-xl);
   border: 1px solid var(--color-neutral-dark);
   box-shadow: var(--shadow-md);
@@ -459,7 +459,7 @@ body {
 /* ===== LEGACY COMPATIBILITY ===== */
 /* Keep existing classes for backward compatibility */
 .card {
-  background: var(--color-neutral-light);
+  background: var(--color-green-200);
   border-radius: var(--radius-xl);
   border: 1px solid var(--color-neutral-dark);
   box-shadow: var(--shadow-sm);
@@ -479,7 +479,7 @@ body {
   position: sticky;
   top: 0;
   z-index: 50;
-  background: rgba(255, 255, 255, 0.95);
+  background: rgba(240, 240, 240, 0.95);
   backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--color-neutral-dark);
   transition: all var(--transition-fast);
@@ -913,7 +913,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background: rgba(255, 255, 255, 0.98);
+  background: rgba(240, 240, 240, 0.98);
   backdrop-filter: blur(12px);
   z-index: 100;
   display: flex;
