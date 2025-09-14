@@ -31,7 +31,9 @@ export default function Contact({ launchBooking }: ContactProps) {
             </div>
             <div className="card-modern p-8">
               <div className="flex items-center mb-6">
-                <Calendar className="text-primary h-6 w-6 mr-3" />
+                <div className="flex items-center justify-center h-14 w-14 mr-3 rounded-xl gradient-primary text-white shadow-lg">
+                  <Calendar className="text-white h-6 w-6" />
+                </div>
                 <h4 className="text-heading text-xl">Visit Information</h4>
               </div>
               <p className="text-secondary leading-relaxed">
@@ -49,7 +51,9 @@ export default function Contact({ launchBooking }: ContactProps) {
           </div>
           <div className="card-elevated card-padding">
             <div className="flex items-center mb-8">
-              <Calendar className="text-primary h-6 w-6 mr-3" />
+              <div className="flex items-center justify-center h-14 w-14 mr-3 rounded-xl gradient-primary text-white shadow-lg">
+                <Calendar className="text-white h-6 w-6" />
+              </div>
               <h3 className="text-heading text-2xl leading-tight">
                 Book an Appointment
               </h3>

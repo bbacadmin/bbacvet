@@ -31,11 +31,11 @@ export default function ContactCard({
   const getIconClasses = () => {
     switch (variant) {
       case "hero":
-        return "text-text-accent h-6 w-6";
+        return "text-white h-6 w-6";
       case "footer":
-        return "text-text-accent h-4 w-4";
+        return "text-white h-4 w-4";
       default:
-        return "text-text-accent h-4 w-4";
+        return "text-white h-6 w-6";
     }
   };
 
@@ -64,8 +64,16 @@ export default function ContactCard({
   return (
     <div className={`${getCardClasses()} ${className}`}>
       {showPhone && (
-        <div className="flex items-center mb-4">
-          <div className="flex items-center justify-center h-[48px] w-[48px] mr-3.5 rounded-[8.75px] bg-[oklch(0.962_0.044_156.743)]">
+        <div
+          className={`flex ${
+            variant === "hero" ? "items-center" : "items-start"
+          } mb-6`}
+        >
+          <div
+            className={`flex items-center justify-center ${
+              variant === "footer" ? "h-10 w-10" : "h-14 w-14"
+            } mr-3.5 rounded-xl gradient-primary text-white shadow-lg`}
+          >
             <Phone className={getIconClasses()} />
           </div>
           <div>
@@ -76,8 +84,8 @@ export default function ContactCard({
                 variant === "footer"
                   ? "text-white hover:text-bg-tertiary transition-colors"
                   : variant === "hero"
-                  ? ""
-                  : "text-text-secondary hover:text-text-accent transition-colors"
+                  ? "text-primary hover:text-primary-dark"
+                  : "text-primary hover:text-primary-dark transition-colors"
               }`}
             >
               {CLINIC_DATA.contact.phone.number}
@@ -87,8 +95,16 @@ export default function ContactCard({
       )}
 
       {showEmail && (
-        <div className="flex items-center mb-4">
-          <div className="flex items-center justify-center h-[48px] w-[48px] mr-3.5 rounded-[8.75px] bg-[oklch(0.962_0.044_156.743)]">
+        <div
+          className={`flex ${
+            variant === "hero" ? "items-center" : "items-start"
+          } mb-6`}
+        >
+          <div
+            className={`flex items-center justify-center ${
+              variant === "footer" ? "h-10 w-10" : "h-14 w-14"
+            } mr-3.5 rounded-xl gradient-primary text-white shadow-lg`}
+          >
             <Mail className={getIconClasses()} />
           </div>
           <div>
@@ -99,8 +115,8 @@ export default function ContactCard({
                 variant === "footer"
                   ? "text-white hover:text-bg-tertiary transition-colors"
                   : variant === "hero"
-                  ? textClasses.value
-                  : "text-text-secondary hover:text-text-accent transition-colors"
+                  ? "text-primary hover:text-primary-dark"
+                  : "text-primary hover:text-primary-dark transition-colors"
               }`}
             >
               {CLINIC_DATA.contact.email.address}
@@ -115,8 +131,16 @@ export default function ContactCard({
       )}
 
       {showAddress && (
-        <div className="flex items-center mb-4">
-          <div className="flex items-center justify-center h-[48px] w-[48px] mr-3.5 rounded-[8.75px] bg-[oklch(0.962_0.044_156.743)]">
+        <div
+          className={`flex ${
+            variant === "hero" ? "items-center" : "items-start"
+          } mb-6`}
+        >
+          <div
+            className={`flex items-center justify-center ${
+              variant === "footer" ? "h-10 w-10" : "h-14 w-14"
+            } mr-3.5 rounded-xl gradient-primary text-white shadow-lg`}
+          >
             <MapPin className={getIconClasses()} />
           </div>
           <div>
@@ -131,11 +155,11 @@ export default function ContactCard({
                 variant === "footer"
                   ? "text-white hover:text-bg-tertiary transition-colors"
                   : variant === "hero"
-                  ? textClasses.value
-                  : "text-text-secondary hover:text-text-accent transition-colors"
+                  ? "text-primary hover:text-primary-dark"
+                  : "text-primary hover:text-primary-dark transition-colors"
               }`}
             >
-              <p className={textClasses.value}>
+              <p className="text-text-secondary">
                 {CLINIC_DATA.contact.address.street}
               </p>
               {variant !== "hero" && (
@@ -149,13 +173,21 @@ export default function ContactCard({
       )}
 
       {showHours && (
-        <div className="flex items-center">
-          <div className="flex items-center justify-center h-[48px] w-[48px] mr-3.5 rounded-[8.75px] bg-[oklch(0.962_0.044_156.743)] p-2.5">
+        <div
+          className={`flex ${
+            variant === "hero" ? "items-center" : "items-start"
+          }`}
+        >
+          <div
+            className={`flex items-center justify-center ${
+              variant === "footer" ? "h-10 w-10" : "h-14 w-14"
+            } mr-3.5 rounded-xl gradient-primary text-white shadow-lg`}
+          >
             <Clock className={getIconClasses()} />
           </div>
           <div>
             {variant !== "hero" && <h4 className={textClasses.label}>Hours</h4>}
-            <div className={`${textClasses.value} space-y-1`}>
+            <div className="text-text-secondary space-y-1">
               <p className="text-sm">
                 Mon-Fri: {CLINIC_DATA.hours.detailed.monday}
               </p>
