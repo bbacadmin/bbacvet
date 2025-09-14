@@ -94,9 +94,18 @@ export default function ContactCard({
           </div>
           <div>
             {variant !== "hero" && <h4 className={textClasses.label}>Email</h4>}
-            <p className={textClasses.value}>
+            <a
+              href={`mailto:${CLINIC_DATA.contact.email.address}`}
+              className={`${
+                variant === "footer"
+                  ? "text-white hover:text-bg-tertiary transition-colors"
+                  : variant === "hero"
+                  ? textClasses.value
+                  : "text-text-secondary hover:text-text-accent transition-colors"
+              }`}
+            >
               {CLINIC_DATA.contact.email.address}
-            </p>
+            </a>
             {variant === "contact" && (
               <p className="text-text-muted text-sm leading-4">
                 We'll respond within one business day

@@ -9,21 +9,25 @@ interface FooterProps {
 
 export default function Footer({ launchBooking }: FooterProps) {
   return (
-    <footer className="text-white bg-text-primary py-14">
+    <footer className="text-white bg-gray-900 py-20">
       <div className="content-wrapper">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-7">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-12">
           <div>
-            <ClinicInfo variant="footer" className="mb-5" />
-            <p className="text-bg-tertiary mb-5">{CLINIC_DATA.description}</p>
+            <ClinicInfo variant="footer" className="mb-6" />
+            <p className="text-white/80 mb-8 leading-relaxed">
+              {CLINIC_DATA.description}
+            </p>
             <button
               onClick={() => launchBooking()}
-              className="bg-text-accent px-5 py-1.5 rounded-lg"
+              className="btn-primary-modern"
             >
               Book Appointment
             </button>
           </div>
           <div>
-            <h4 className="text-base leading-6 mb-5">Contact Information</h4>
+            <h4 className="text-xl font-semibold mb-8 leading-tight">
+              Contact Information
+            </h4>
             <ContactCard
               variant="footer"
               showPhone={true}
@@ -33,54 +37,74 @@ export default function Footer({ launchBooking }: FooterProps) {
             />
           </div>
           <div>
-            <h4 className="text-base leading-6 mb-5">Our Services</h4>
-            <ul className="text-bg-tertiary list-none pl-0">
-              <li className="mb-2.5">Veterinary Care</li>
-              <li className="mb-2.5">Wellness Plans</li>
-              <li className="mb-2.5">Vaccines</li>
-              <li className="mb-2.5">Surgery</li>
-              <li className="">Dentistry</li>
+            <h4 className="text-xl font-semibold mb-8 leading-tight">
+              Our Services
+            </h4>
+            <ul className="text-white/80 space-y-4">
+              <li className="hover:text-white transition-colors cursor-pointer">
+                Veterinary Care
+              </li>
+              <li className="hover:text-white transition-colors cursor-pointer">
+                Wellness Plans
+              </li>
+              <li className="hover:text-white transition-colors cursor-pointer">
+                Vaccines
+              </li>
+              <li className="hover:text-white transition-colors cursor-pointer">
+                Surgery
+              </li>
+              <li className="hover:text-white transition-colors cursor-pointer">
+                Dentistry
+              </li>
             </ul>
           </div>
           <div>
-            <h4 className="text-base leading-6 mb-5">Hours & Social</h4>
-            <div className="mb-3.5">
-              <div className="text-bg-tertiary space-y-1">
-                <p>Mon, Wed, Thu, Fri: {CLINIC_DATA.hours.detailed.monday}</p>
-                <p>Sat: {CLINIC_DATA.hours.detailed.saturday}</p>
-                <p>Tue, Sun: {CLINIC_DATA.hours.detailed.tuesday}</p>
+            <h4 className="text-xl font-semibold mb-8 leading-tight">
+              Hours & Social
+            </h4>
+            <div className="mb-8">
+              <div className="text-white/80 space-y-2">
+                <p className="leading-relaxed">
+                  Mon, Wed, Thu, Fri: {CLINIC_DATA.hours.detailed.monday}
+                </p>
+                <p className="leading-relaxed">
+                  Sat: {CLINIC_DATA.hours.detailed.saturday}
+                </p>
+                <p className="leading-relaxed">
+                  Tue, Sun: {CLINIC_DATA.hours.detailed.tuesday}
+                </p>
               </div>
             </div>
             <div>
-              <h5 className="mb-2.5">Follow Us</h5>
+              <h5 className="mb-4 font-medium">Follow Us</h5>
               <div className="flex">
                 <a
                   href={CLINIC_DATA.social.instagram.url}
-                  className="flex items-center justify-center bg-bg-tertiary h-8 w-8 rounded-lg"
+                  className="flex items-center justify-center bg-white/10 hover:bg-primary h-12 w-12 rounded-xl transition-all duration-300 hover:scale-110"
                 >
-                  <Instagram className="h-4 w-4" />
+                  <Instagram className="h-5 w-5" />
                 </a>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <div className="mt-10 pt-7 border-t border-solid border-bg-tertiary">
+      <div className="mt-16 pt-8 border-t border-gray-700">
         <div className="content-wrapper">
           <div className="flex flex-col md:flex-row justify-between items-center">
-            <p className="text-text-muted text-sm leading-4 mb-3.5 md:mb-0">
+            <p className="text-white/60 text-sm mb-6 md:mb-0">
               © 2025 bbacvet.com. All rights reserved.
             </p>
-            <div className="text-text-muted text-sm leading-4 flex">
-              <button className="bg-transparent mr-5 p-0">
+            <div className="text-white/60 text-sm flex flex-wrap gap-6">
+              <button className="hover:text-white transition-colors">
                 Privacy Policy
               </button>
-              <button className="bg-transparent mr-5 p-0">
+              <button className="hover:text-white transition-colors">
                 Terms of Service
               </button>
               <button
                 onClick={() => launchBooking()}
-                className="bg-transparent p-0"
+                className="hover:text-white transition-colors"
               >
                 Book Appointment
               </button>

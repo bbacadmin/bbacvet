@@ -9,36 +9,36 @@ export default function Contact({ launchBooking }: ContactProps) {
   return (
     <section
       id="contact"
-      className="bg-[linear-gradient(rgb(255,255,255)_0%,rgb(248,250,252)_100%)] py-7"
+      className="bg-gradient-to-b from-slate-50 to-white py-20"
     >
       <div className="content-wrapper">
-        <div className="text-center mb-14">
-          <h2 className="text-text-primary text-2xl leading-8 mb-3.5 md:text-3xl md:leading-9">
+        <div className="text-center mb-20">
+          <h2 className="text-heading text-4xl md:text-5xl mb-6 leading-tight">
             Schedule Your Pet's Appointment
           </h2>
-          <p className="text-text-secondary text-lg leading-6 max-w-2xl mx-auto">
+          <p className="text-body text-xl max-w-3xl mx-auto leading-relaxed">
             Ready to give your pet the care they deserve? Contact us to schedule
             an appointment or reach out with any questions about our services.
           </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
           <div>
-            <h3 className="text-text-primary text-xl leading-7 mb-5">
+            <h3 className="text-heading text-3xl mb-8 leading-tight">
               Get in Touch
             </h3>
-            <div className="mb-7">
+            <div className="mb-10">
               <ContactCard variant="contact" />
             </div>
-            <div className="bg-bg-secondary gap-5 flex flex-col border p-5 rounded-xl border-solid border-gray-200">
-              <div className="flex items-center">
-                <Calendar className="text-text-secondary h-4 w-4 mr-1.5" />
-                <h4 className="text-text-secondary">Visit Information</h4>
+            <div className="card-modern p-8">
+              <div className="flex items-center mb-6">
+                <Calendar className="text-primary h-6 w-6 mr-3" />
+                <h4 className="text-heading text-xl">Visit Information</h4>
               </div>
-              <p className="text-text-muted text-sm leading-4">
+              <p className="text-secondary leading-relaxed">
                 All visits are by appointment only. Call{" "}
                 <a
                   href="tel:+19297381230"
-                  className="text-text-secondary hover:text-text-accent transition-colors underline"
+                  className="text-primary hover:text-primary-dark transition-colors font-medium underline"
                 >
                   (929) 738-1230
                 </a>{" "}
@@ -47,46 +47,46 @@ export default function Contact({ launchBooking }: ContactProps) {
               </p>
             </div>
           </div>
-          <div className="card card-padding">
-            <div className="flex items-center mb-5">
-              <Calendar className="text-text-accent h-5 w-5 mr-2.5" />
-              <h3 className="text-text-primary text-xl leading-7">
+          <div className="card-elevated card-padding">
+            <div className="flex items-center mb-8">
+              <Calendar className="text-primary h-6 w-6 mr-3" />
+              <h3 className="text-heading text-2xl leading-tight">
                 Book an Appointment
               </h3>
             </div>
-            <div className="text-center mb-7">
-              <h4 className="text-text-primary text-base leading-6 mb-3.5">
+            <div className="text-center mb-10">
+              <h4 className="text-heading text-xl mb-4 leading-tight">
                 Easy Online Booking
               </h4>
-              <p className="text-text-secondary mb-5">
+              <p className="text-secondary mb-8 leading-relaxed">
                 Use our convenient online booking system to schedule your pet's
                 appointment. Choose from available time slots and provide your
                 pet's information all in one place.
               </p>
               <button
                 onClick={() => launchBooking()}
-                className="btn-primary mb-3.5"
+                className="btn-primary-modern mb-6"
               >
                 Book Your Appointment
               </button>
             </div>
-            <div className="bg-bg-tertiary p-5 rounded-lg">
-              <h5 className="text-text-primary mb-2.5">What to Bring</h5>
-              <ul className="text-text-secondary text-sm leading-4 list-none pl-0">
-                <li className="flex items-center mb-1">
-                  <div className="bg-text-accent h-1 w-1 mr-2.5 rounded-full"></div>
+            <div className="bg-neutral-light p-6 rounded-xl border border-neutral-dark">
+              <h5 className="text-heading mb-4 text-lg">What to Bring</h5>
+              <ul className="text-secondary text-sm leading-relaxed space-y-3">
+                <li className="flex items-center">
+                  <div className="bg-primary h-2 w-2 mr-3 rounded-full flex-shrink-0"></div>
                   Previous medical records
                 </li>
-                <li className="flex items-center mb-1">
-                  <div className="bg-text-accent h-1 w-1 mr-2.5 rounded-full"></div>
+                <li className="flex items-center">
+                  <div className="bg-primary h-2 w-2 mr-3 rounded-full flex-shrink-0"></div>
                   Current medications
                 </li>
-                <li className="flex items-center mb-1">
-                  <div className="bg-text-accent h-1 w-1 mr-2.5 rounded-full"></div>
+                <li className="flex items-center">
+                  <div className="bg-primary h-2 w-2 mr-3 rounded-full flex-shrink-0"></div>
                   Insurance information
                 </li>
                 <li className="flex items-center">
-                  <div className="bg-text-accent h-1 w-1 mr-2.5 rounded-full"></div>
+                  <div className="bg-primary h-2 w-2 mr-3 rounded-full flex-shrink-0"></div>
                   List of questions or concerns
                 </li>
               </ul>

@@ -79,42 +79,42 @@ export default function Services({ launchBooking }: ServicesProps) {
   return (
     <section
       id="services"
-      className="bg-[linear-gradient(rgb(255,255,255)_0%,rgb(255,255,255)_100%)] py-7"
+      className="bg-gradient-to-b from-white to-slate-50 py-20"
     >
       <div className="content-wrapper">
-        <div className="text-center mb-14">
-          <h2 className="text-text-primary text-2xl leading-8 mb-3.5 md:text-3xl md:leading-9">
+        <div className="text-center mb-20">
+          <h2 className="text-heading text-4xl md:text-5xl mb-6 leading-tight">
             Comprehensive Pet Care Services
           </h2>
-          <p className="text-text-secondary text-lg leading-6 max-w-2xl mx-auto">
+          <p className="text-body text-xl max-w-3xl mx-auto leading-relaxed">
             From routine wellness exams to advanced surgical procedures, we
             provide complete veterinary care for your furry family members at
             every stage of their lives.
           </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-7 mb-14">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20">
           {services.map((service) => (
-            <div key={service.title} className="card card-padding">
-              <div className="flex flex-col gap-5">
-                <div className="flex items-center gap-2.5 pt-5 pb-3.5 px-5">
-                  <div className="flex items-center justify-center h-10 w-10 rounded-lg bg-bg-tertiary">
-                    <span className="text-text-accent">{service.icon}</span>
+            <div key={service.title} className="card-modern card-padding">
+              <div className="flex flex-col gap-6">
+                <div className="flex items-center gap-4">
+                  <div className="flex items-center justify-center h-14 w-14 rounded-xl gradient-primary text-white shadow-lg">
+                    {service.icon}
                   </div>
-                  <h4 className="text-text-primary text-lg leading-6">
+                  <h4 className="text-heading text-xl leading-tight">
                     {service.title}
                   </h4>
                 </div>
-                <div className="pb-5 px-5">
-                  <p className="text-text-secondary mb-7">
+                <div>
+                  <p className="text-secondary mb-6 leading-relaxed">
                     {service.description}
                   </p>
-                  <ul className="list-none pl-0">
+                  <ul className="list-none space-y-3">
                     {service.items.map((item) => (
                       <li
                         key={item}
-                        className="text-text-secondary text-sm items-center flex leading-4 mb-1"
+                        className="text-secondary text-sm flex items-center leading-relaxed"
                       >
-                        <div className="bg-text-accent h-1 w-1 mr-2.5 rounded-full"></div>
+                        <div className="bg-primary h-2 w-2 mr-3 rounded-full flex-shrink-0"></div>
                         {item}
                       </li>
                     ))}
@@ -125,15 +125,18 @@ export default function Services({ launchBooking }: ServicesProps) {
           ))}
         </div>
         <div className="text-center">
-          <h3 className="text-text-primary text-xl leading-7 mb-3.5">
+          <h3 className="text-heading text-3xl mb-6 leading-tight">
             Ready to Schedule Your Pet's Care?
           </h3>
-          <p className="text-text-secondary max-w-2xl mb-7 mx-auto">
+          <p className="text-body text-lg max-w-3xl mb-10 mx-auto leading-relaxed">
             Our experienced veterinary team is here to provide the highest
             quality care for your beloved pet. Book an appointment today and let
             us help keep your furry friend healthy and happy.
           </p>
-          <button onClick={() => launchBooking()} className="btn-primary">
+          <button
+            onClick={() => launchBooking()}
+            className="btn-primary-modern"
+          >
             Schedule an Appointment
           </button>
         </div>
