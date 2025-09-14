@@ -12,7 +12,7 @@ export default function Contact({ launchBooking }: ContactProps) {
       className="py-20"
       style={{
         background:
-          "linear-gradient(to bottom, var(--color-green-50), transparent)",
+          "linear-gradient(to bottom, var(--color-green-50), rgba(247, 249, 247, 0.3))",
       }}
     >
       <div className="content-wrapper">

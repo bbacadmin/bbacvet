@@ -20,7 +20,7 @@ export default function ContactCard({
   const getCardClasses = () => {
     switch (variant) {
       case "hero":
-        return "card card-padding-sm";
+        return "card-modern card-padding-sm flex flex-col justify-center py-4";
       case "footer":
         return "mb-3.5";
       default:

@@ -43,7 +43,7 @@ export default function About() {
       className="py-24"
       style={{
         background:
-          "linear-gradient(to bottom, var(--color-green-100), transparent)",
+          "linear-gradient(to bottom, var(--color-green-50), transparent)",
       }}
     >
       <div className="content-wrapper">

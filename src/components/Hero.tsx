@@ -21,7 +21,7 @@ export default function Hero({ launchBooking, scrollTo }: HeroProps) {
       className="relative py-12 md:py-20"
       style={{
         background:
-          "linear-gradient(to bottom, var(--color-green-300), var(--color-green-100))",
+          "linear-gradient(to bottom, var(--color-green-200), var(--color-green-50))",
       }}
       aria-labelledby="hero-title"
     >
@@ -94,7 +94,7 @@ export default function Hero({ launchBooking, scrollTo }: HeroProps) {
       {/* Full width contact cards */}
       <div className="pb-4">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
             <ContactCard
               variant="hero"
               showPhone={false}

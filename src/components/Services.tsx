@@ -82,7 +82,7 @@ export default function Services({ launchBooking }: ServicesProps) {
       className="py-20"
       style={{
         background:
-          "linear-gradient(to bottom, var(--color-green-200), var(--color-green-50))",
+          "linear-gradient(to bottom, var(--color-green-100), transparent)",
       }}
     >
       <div className="content-wrapper">
