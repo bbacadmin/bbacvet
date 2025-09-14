@@ -82,7 +82,7 @@ export default function Services({ launchBooking }: ServicesProps) {
       className="bg-gradient-to-b from-white to-slate-50 py-20"
     >
       <div className="content-wrapper">
-        <div className="text-center mb-20">
+        <div className="text-center mb-12">
           <h2 className="text-heading text-4xl md:text-5xl mb-6 leading-tight">
             Comprehensive Pet Care Services
           </h2>

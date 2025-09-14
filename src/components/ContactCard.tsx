@@ -9,7 +9,6 @@ interface ContactCardProps {
   variant?: "hero" | "contact" | "footer";
   className?: string;
 }
-
 export default function ContactCard({
   showPhone = true,
   showEmail = true,
@@ -32,7 +31,7 @@ export default function ContactCard({
   const getIconClasses = () => {
     switch (variant) {
       case "hero":
-        return "text-text-accent h-5 w-5";
+        return "text-text-accent h-6 w-6";
       case "footer":
         return "text-text-accent h-4 w-4";
       default:
@@ -44,8 +43,8 @@ export default function ContactCard({
     switch (variant) {
       case "hero":
         return {
-          label: "text-text-muted text-sm leading-5",
-          value: "text-text-secondary text-xs leading-4",
+          label: "text-text-muted text-base leading-5",
+          value: "text-text-secondary text-sm leading-4",
         };
       case "footer":
         return {
@@ -65,8 +64,8 @@ export default function ContactCard({
   return (
     <div className={`${getCardClasses()} ${className}`}>
       {showPhone && (
-        <div className="flex items-start mb-4">
-          <div className="flex items-center justify-center h-[42px] w-[42px] mr-3.5 rounded-[8.75px] bg-[oklch(0.962_0.044_156.743)]">
+        <div className="flex items-center mb-4">
+          <div className="flex items-center justify-center h-[48px] w-[48px] mr-3.5 rounded-[8.75px] bg-[oklch(0.962_0.044_156.743)]">
             <Phone className={getIconClasses()} />
           </div>
           <div>
@@ -88,8 +87,8 @@ export default function ContactCard({
       )}
 
       {showEmail && (
-        <div className="flex items-start mb-4">
-          <div className="flex items-center justify-center h-[42px] w-[42px] mr-3.5 rounded-[8.75px] bg-[oklch(0.962_0.044_156.743)]">
+        <div className="flex items-center mb-4">
+          <div className="flex items-center justify-center h-[48px] w-[48px] mr-3.5 rounded-[8.75px] bg-[oklch(0.962_0.044_156.743)]">
             <Mail className={getIconClasses()} />
           </div>
           <div>
@@ -116,8 +115,8 @@ export default function ContactCard({
       )}
 
       {showAddress && (
-        <div className="flex items-start mb-4">
-          <div className="flex items-center justify-center h-[42px] w-[42px] mr-3.5 rounded-[8.75px] bg-[oklch(0.962_0.044_156.743)]">
+        <div className="flex items-center mb-4">
+          <div className="flex items-center justify-center h-[48px] w-[48px] mr-3.5 rounded-[8.75px] bg-[oklch(0.962_0.044_156.743)]">
             <MapPin className={getIconClasses()} />
           </div>
           <div>
@@ -150,16 +149,22 @@ export default function ContactCard({
       )}
 
       {showHours && (
-        <div className="flex items-start">
-          <div className="flex items-center justify-center h-[42px] w-[42px] mr-3.5 rounded-[8.75px] bg-[oklch(0.962_0.044_156.743)] p-2.5">
+        <div className="flex items-center">
+          <div className="flex items-center justify-center h-[48px] w-[48px] mr-3.5 rounded-[8.75px] bg-[oklch(0.962_0.044_156.743)] p-2.5">
             <Clock className={getIconClasses()} />
           </div>
           <div>
             {variant !== "hero" && <h4 className={textClasses.label}>Hours</h4>}
             <div className={`${textClasses.value} space-y-1`}>
-              <p>Mon, Wed, Thu, Fri: {CLINIC_DATA.hours.detailed.monday}</p>
-              <p>Sat: {CLINIC_DATA.hours.detailed.saturday}</p>
-              <p>Tue, Sun: {CLINIC_DATA.hours.detailed.tuesday}</p>
+              <p className="text-sm">
+                Mon-Fri: {CLINIC_DATA.hours.detailed.monday}
+              </p>
+              <p className="text-sm">
+                Sat: {CLINIC_DATA.hours.detailed.saturday}
+              </p>
+              <p className="text-sm">
+                Sun-Tue: {CLINIC_DATA.hours.detailed.tuesday}
+              </p>
             </div>
           </div>
         </div>
