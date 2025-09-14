@@ -14,7 +14,7 @@ interface ClinicInfoProps {
   onClick?: () => void;
 }
 
-const ClinicInfo = ({
+export default function ClinicInfo({
   variant = "header",
   showLogo = true,
   showName = true,
@@ -24,7 +24,7 @@ const ClinicInfo = ({
   taglineClassName = "",
   className = "",
   onClick,
-}: ClinicInfoProps) => {
+}: ClinicInfoProps) {
   const getClasses = () => {
     switch (variant) {
       case "header":
@@ -100,6 +100,4 @@ const ClinicInfo = ({
       </div>
     </div>
   );
-};
-
-export default ClinicInfo;
+}

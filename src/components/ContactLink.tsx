@@ -9,12 +9,12 @@ interface ContactLinkProps {
   className?: string;
 }
 
-const ContactLink = ({
+export default function ContactLink({
   type,
   variant = "header",
   showIcon = true,
   className = "",
-}: ContactLinkProps) => {
+}: ContactLinkProps) {
   const getIcon = () => {
     switch (type) {
       case "phone":
@@ -105,6 +105,4 @@ const ContactLink = ({
       {variant === "cta" && !showIcon && `Call ${content.text}`}
     </a>
   );
-};
-
-export default ContactLink;
+}

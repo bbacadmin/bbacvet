@@ -4,33 +4,24 @@ import { Link, useNavigate } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
-// Extend Window interface to include YourVetBook
-declare global {
-  interface Window {
-    YourVetBook?: (clinicId: string, locationId?: string) => void;
-  }
-}
-
-const NotFound = () => {
+export default function NotFound() {
   const navigate = useNavigate();
 
   // State management for mobile menu
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
 
   // State management for active navigation (not very useful on 404 page, but required by Header)
-  const active = "home";
+  const [active, setActive] = React.useState("home");
 
   // ScrollTo function that redirects to main page sections
-  const scrollTo = (id: string) => {
+  const scrollTo = (id: "home" | "services" | "about" | "contact") => {
     // Navigate to main page with hash for the section
     navigate(`/#${id}`);
   };
 
   const launchBooking = () => {
-    const fn = window.YourVetBook;
-    if (typeof fn === "function") {
-      fn("brightonbeachac");
-    }
+    const fn = (window as any).YourVetBook;
+    if (typeof fn === "function") fn("brightonbeachac");
   };
 
   return (
@@ -60,8 +51,8 @@ const NotFound = () => {
               style={{ marginBottom: "var(--spacing-xl)" }}
             >
               Just like a curious pet, this page has wandered away from where it
-              should be. Don&#39;t worry though - we&#39;re here to help you
-              find what you&#39;re looking for!
+              should be. Don't worry though - we're here to help you find what
+              you're looking for!
             </p>
 
             {/* Action Buttons */}
@@ -164,8 +155,8 @@ const NotFound = () => {
                   color: "var(--color-emerald-800)",
                 }}
               >
-                Our team is here to help! Contact us and we&#39;ll make sure
-                your pet gets the care they need.
+                Our team is here to help! Contact us and we'll make sure your
+                pet gets the care they need.
               </p>
               <div
                 style={{
@@ -194,6 +185,4 @@ const NotFound = () => {
       <Footer launchBooking={launchBooking} />
     </div>
   );
-};
-
-export default NotFound;
+}

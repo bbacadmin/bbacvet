@@ -51,3 +51,13 @@ export const CLINIC_DATA = {
   description:
     "Compassionate veterinary care for your beloved pets. We're committed to providing exceptional healthcare in a warm, welcoming environment.",
 } as const;
+
+// Helper functions for consistent formatting
+export const formatPhoneForDisplay = (phone: string) => phone;
+export const formatPhoneForHref = (phone: string) =>
+  `tel:${phone.replace(/\D/g, "")}`;
+export const formatEmailForHref = (email: string) => `mailto:${email}`;
+export const formatAddressForGoogleMaps = (address: string) =>
+  `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(
+    address
+  )}`;

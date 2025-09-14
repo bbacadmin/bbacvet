@@ -3,7 +3,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import App from "./App";
 import NotFound from "./NotFound";
 
-const Router = () => {
+export default function Router() {
   return (
     <BrowserRouter>
       <Routes>
@@ -12,6 +12,4 @@ const Router = () => {
       </Routes>
     </BrowserRouter>
   );
-};
-
-export default Router;
+}

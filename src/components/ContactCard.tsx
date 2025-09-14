@@ -11,14 +11,14 @@ interface ContactCardProps {
   className?: string;
 }
 
-const ContactCard = ({
+export default function ContactCard({
   showPhone = true,
   showEmail = true,
   showAddress = true,
   showHours = true,
   variant = "contact",
   className = "",
-}: ContactCardProps) => {
+}: ContactCardProps) {
   const getCardClasses = () => {
     switch (variant) {
       case "hero":
@@ -66,7 +66,7 @@ const ContactCard = ({
   return (
     <div className={`${getCardClasses()} ${className}`}>
       {showPhone && (
-        <div className="flex items-start mb-6">
+        <div className="flex items-center">
           <div className="flex items-center justify-center h-[42px] w-[42px] mr-3.5 rounded-[8.75px] bg-[oklch(0.962_0.044_156.743)]">
             <Phone className={getIconClasses()} />
           </div>
@@ -89,7 +89,7 @@ const ContactCard = ({
       )}
 
       {showEmail && (
-        <div className="flex items-start mb-6">
+        <div className="flex items-center">
           <div className="flex items-center justify-center h-[42px] w-[42px] mr-3.5 rounded-[8.75px] bg-[oklch(0.962_0.044_156.743)]">
             <Mail className={getIconClasses()} />
           </div>
@@ -100,7 +100,7 @@ const ContactCard = ({
             </p>
             {variant === "contact" && (
               <p className="text-[oklch(0.551_0.027_264.364)] text-[12.25px] leading-[17.5px]">
-                We&#39;ll respond within one business day
+                We'll respond within one business day
               </p>
             )}
           </div>
@@ -108,7 +108,7 @@ const ContactCard = ({
       )}
 
       {showAddress && (
-        <div className="flex items-start mb-6">
+        <div className="flex items-center">
           <div className="flex items-center justify-center h-[42px] w-[42px] mr-3.5 rounded-[8.75px] bg-[oklch(0.962_0.044_156.743)]">
             <MapPin className={getIconClasses()} />
           </div>
@@ -142,7 +142,7 @@ const ContactCard = ({
       )}
 
       {showHours && (
-        <div className="flex items-start">
+        <div className="flex items-center">
           <div className="flex items-center justify-center h-[42px] w-[42px] mr-3.5 rounded-[8.75px] bg-[oklch(0.962_0.044_156.743)]">
             <Clock className={getIconClasses()} />
           </div>
@@ -150,7 +150,7 @@ const ContactCard = ({
             {variant !== "hero" && <h4 className={textClasses.label}>Hours</h4>}
             <div className={`${textClasses.value} space-y-1`}>
               <p>Mon, Wed, Thu, Fri: {CLINIC_DATA.hours.detailed.monday}</p>
-              <p>Sat: {CLINIC_DATA.hours.detailed.saturday}</p>
+              <p>Saturday: {CLINIC_DATA.hours.detailed.saturday}</p>
               <p>Tue, Sun: {CLINIC_DATA.hours.detailed.tuesday}</p>
             </div>
           </div>
@@ -158,6 +158,4 @@ const ContactCard = ({
       )}
     </div>
   );
-};
-
-export default ContactCard;
+}
