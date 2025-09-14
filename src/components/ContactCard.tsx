@@ -32,11 +32,11 @@ export default function ContactCard({
   const getIconClasses = () => {
     switch (variant) {
       case "hero":
-        return "text-[oklch(0.627_0.194_149.214)] h-[21px] w-[21px]";
+        return "text-text-accent h-5 w-5";
       case "footer":
-        return "text-[oklch(0.627_0.194_149.214)] h-[17.5px] w-[17.5px]";
+        return "text-text-accent h-4 w-4";
       default:
-        return "text-[oklch(0.627_0.194_149.214)] h-[17.5px] w-[17.5px]";
+        return "text-text-accent h-4 w-4";
     }
   };
 
@@ -44,8 +44,8 @@ export default function ContactCard({
     switch (variant) {
       case "hero":
         return {
-          label: "text-[oklch(0.551_0.027_264.364)] text-[14px] leading-[20px]",
-          value: "text-[oklch(0.446_0.03_256.802)] text-[13px] leading-[18px]",
+          label: "text-text-muted text-sm leading-5",
+          value: "text-text-secondary text-xs leading-4",
         };
       case "footer":
         return {
@@ -54,8 +54,8 @@ export default function ContactCard({
         };
       default:
         return {
-          label: "text-[oklch(0.21_0.034_264.665)] mb-[3.5px]",
-          value: "text-[oklch(0.446_0.03_256.802)]",
+          label: "text-text-primary mb-1",
+          value: "text-text-secondary",
         };
     }
   };
@@ -75,10 +75,10 @@ export default function ContactCard({
               href={CLINIC_DATA.contact.phone.href}
               className={`${
                 variant === "footer"
-                  ? "text-white hover:text-[oklch(0.962_0.044_156.743)] transition-colors"
+                  ? "text-white hover:text-bg-tertiary transition-colors"
                   : variant === "hero"
                   ? ""
-                  : "text-[oklch(0.446_0.03_256.802)] hover:text-[oklch(0.627_0.194_149.214)] transition-colors"
+                  : "text-text-secondary hover:text-text-accent transition-colors"
               }`}
             >
               {CLINIC_DATA.contact.phone.number}
@@ -98,7 +98,7 @@ export default function ContactCard({
               {CLINIC_DATA.contact.email.address}
             </p>
             {variant === "contact" && (
-              <p className="text-[oklch(0.551_0.027_264.364)] text-[12.25px] leading-[17.5px]">
+              <p className="text-text-muted text-sm leading-4">
                 We'll respond within one business day
               </p>
             )}
@@ -121,17 +121,17 @@ export default function ContactCard({
               rel="noopener noreferrer"
               className={`${
                 variant === "footer"
-                  ? "text-white hover:text-[oklch(0.962_0.044_156.743)] transition-colors"
+                  ? "text-white hover:text-bg-tertiary transition-colors"
                   : variant === "hero"
                   ? textClasses.value
-                  : "text-[oklch(0.446_0.03_256.802)] hover:text-[oklch(0.627_0.194_149.214)] transition-colors"
+                  : "text-text-secondary hover:text-text-accent transition-colors"
               }`}
             >
               <p className={textClasses.value}>
                 {CLINIC_DATA.contact.address.street}
               </p>
               {variant !== "hero" && (
-                <p className="text-[oklch(0.551_0.027_264.364)] text-[12.25px] leading-[17.5px]">
+                <p className="text-text-muted text-sm leading-4">
                   {CLINIC_DATA.contact.address.city}
                 </p>
               )}

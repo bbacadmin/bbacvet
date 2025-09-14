@@ -48,10 +48,10 @@ export default function About() {
               className="h-full max-w-full object-contain w-full"
             />
           </div>
-          <h2 className="text-[oklch(0.21_0.034_264.665)] text-[26.25px] leading-[31.5px] mb-3.5 md:text-[31.5px] md:leading-[35px]">
+          <h2 className="text-text-primary text-2xl leading-8 mb-3.5 md:text-3xl md:leading-9">
             Your Neighborhood Partner in Pet Health
           </h2>
-          <p className="text-[oklch(0.446_0.03_256.802)] text-[17.5px] leading-[24.5px] max-w-2xl mx-auto">
+          <p className="text-text-secondary text-lg leading-6 max-w-2xl mx-auto">
             At Brighton Beach Animal Clinic, we're more than just a veterinary
             clinic — we're a caring, compassionate team dedicated to the
             lifelong well-being of your furry family members.
@@ -60,23 +60,23 @@ export default function About() {
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-[42px] mb-[70px]">
           <div>
-            <h3 className="text-[oklch(0.21_0.034_264.665)] text-[21px] leading-7 mb-[21px]">
+            <h3 className="text-text-primary text-xl leading-7 mb-5">
               Welcome to Our New Clinic
             </h3>
-            <p className="text-[oklch(0.446_0.03_256.802)] mb-[21px]">
+            <p className="text-text-secondary mb-5">
               Brighton Beach Animal Clinic opened its doors in 2025 with a
               mission to provide exceptional veterinary care to the pets and
               families of Brooklyn. Our state-of-the-art facility is equipped
               with modern medical equipment and designed with your pet's comfort
               in mind.
             </p>
-            <p className="text-[oklch(0.446_0.03_256.802)] mb-[21px]">
+            <p className="text-text-secondary mb-5">
               We believe that every pet deserves quality healthcare delivered
               with compassion and expertise. Our team is committed to building
               lasting relationships with both pets and their owners, providing
               personalized care that meets each pet's unique needs.
             </p>
-            <p className="text-[oklch(0.446_0.03_256.802)]">
+            <p className="text-text-secondary">
               Whether you're visiting us for a routine wellness exam, urgent
               care, or specialized treatment, you can trust that your pet will
               receive the highest standard of veterinary medicine in a warm,
@@ -97,19 +97,17 @@ export default function About() {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-7 mb-[70px]">
           {features.map((feature) => (
             <div key={feature.title} className="card card-padding text-center">
-              <div className="flex flex-col gap-[21px]">
-                <div className="flex items-center gap-[10.5px] pt-[21px] pb-3.5 px-[21px]">
-                  <div className="flex items-center justify-center h-[42px] w-[42px] rounded-[3.35544e+07px] bg-[oklch(0.962_0.044_156.743)]">
-                    <span className="text-[oklch(0.627_0.194_149.214)]">
-                      {feature.icon}
-                    </span>
+              <div className="flex flex-col gap-5">
+                <div className="flex items-center gap-2.5 pt-5 pb-3.5 px-5">
+                  <div className="flex items-center justify-center h-10 w-10 rounded-full bg-bg-tertiary">
+                    <span className="text-text-accent">{feature.icon}</span>
                   </div>
-                  <h4 className="text-[oklch(0.21_0.034_264.665)] text-[15.75px] leading-[24.5px]">
+                  <h4 className="text-text-primary text-base leading-6">
                     {feature.title}
                   </h4>
                 </div>
-                <div className="pb-[21px] px-[21px]">
-                  <p className="text-[oklch(0.446_0.03_256.802)] text-[12.25px] leading-[17.5px]">
+                <div className="pb-5 px-5">
+                  <p className="text-text-secondary text-sm leading-4">
                     {feature.description}
                   </p>
                 </div>
@@ -118,48 +116,40 @@ export default function About() {
           ))}
         </div>
 
-        <div className="text-white bg-[linear-gradient(to_right,oklch(0.627_0.194_149.214)_0%,oklch(0.666_0.179_58.318)_100%)] p-[42px] rounded-[14px]">
-          <div className="text-center mb-[42px]">
-            <h3 className="text-[26.25px] font-medium leading-[31.5px] mb-3.5">
+        <div className="text-white bg-[linear-gradient(to_right,rgb(16,185,129)_0%,rgb(20,184,166)_100%)] p-10 rounded-xl">
+          <div className="text-center mb-10">
+            <h3 className="text-2xl font-medium leading-8 mb-3.5 md:text-3xl md:leading-9">
               Brighton Beach Animal Clinic by the Numbers
             </h3>
-            <p className="text-[oklch(0.962_0.044_156.743)] max-w-[588px] mx-auto">
+            <p className="text-bg-tertiary max-w-2xl mx-auto">
               Since opening our doors, we've been committed to providing
               exceptional care and building trust within our community.
             </p>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-7">
             <div className="text-center">
-              <div className="text-[26.25px] leading-[31.5px] mb-[7px] md:text-[31.5px] md:leading-[35px]">
+              <div className="text-2xl leading-8 mb-1 md:text-3xl md:leading-9">
                 2025
               </div>
-              <div className="text-[oklch(0.962_0.044_156.743)]">
-                Newly Opened
-              </div>
+              <div className="text-bg-tertiary">Newly Opened</div>
             </div>
             <div className="text-center">
-              <div className="text-[26.25px] leading-[31.5px] mb-[7px] md:text-[31.5px] md:leading-[35px]">
+              <div className="text-2xl leading-8 mb-1 md:text-3xl md:leading-9">
                 100%
               </div>
-              <div className="text-[oklch(0.962_0.044_156.743)]">
-                Caring Staff
-              </div>
+              <div className="text-bg-tertiary">Caring Staff</div>
             </div>
             <div className="text-center">
-              <div className="text-[26.25px] leading-[31.5px] mb-[7px] md:text-[31.5px] md:leading-[35px]">
+              <div className="text-2xl leading-8 mb-1 md:text-3xl md:leading-9">
                 Same Day
               </div>
-              <div className="text-[oklch(0.962_0.044_156.743)]">
-                Appointments Available
-              </div>
+              <div className="text-bg-tertiary">Appointments Available</div>
             </div>
             <div className="text-center">
-              <div className="text-[26.25px] leading-[31.5px] mb-[7px] md:text-[31.5px] md:leading-[35px]">
+              <div className="text-2xl leading-8 mb-1 md:text-3xl md:leading-9">
                 ∞
               </div>
-              <div className="text-[oklch(0.962_0.044_156.743)]">
-                Love for Pets
-              </div>
+              <div className="text-bg-tertiary">Love for Pets</div>
             </div>
           </div>
         </div>

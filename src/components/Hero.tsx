@@ -19,13 +19,13 @@ export default function Hero({ launchBooking, scrollTo }: HeroProps) {
   return (
     <section
       id="home"
-      className="relative bg-[linear-gradient(to_right_bottom,oklch(0.982_0.018_155.826)_0%,oklch(0.987_0.022_95.277)_100%)] py-[70px] md:py-28"
+      className="relative bg-[linear-gradient(to_right_bottom,rgb(255,255,255)_0%,rgb(248,250,252)_100%)] py-7 md:py-28"
       aria-labelledby="hero-title"
     >
       <div className="content-wrapper">
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-[42px]">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
           <div>
-            <div className="flex items-center mb-[21px]">
+            <div className="flex items-center mb-5">
               <ClinicInfo variant="hero" showName={false} showTagline={false} />
               <div className="flex items-center">
                 <Star className="text-yellow-400 h-4 w-4" />
@@ -86,20 +86,18 @@ export default function Hero({ launchBooking, scrollTo }: HeroProps) {
             </div>
           </div>
           <div className="relative">
-            <div className="aspect-square md:aspect-auto shadow-[rgba(0,0,0,0)_0px_0px_0px_0px,rgba(0,0,0,0)_0px_0px_0px_0px,rgba(0,0,0,0)_0px_0px_0px_0px,rgba(0,0,0,0)_0px_0px_0px_0px,rgba(0,0,0,0.25)_0px_25px_50px_-12px] overflow-hidden rounded-[14px]">
+            <div className="aspect-square md:aspect-auto shadow-xl overflow-hidden rounded-xl">
               <img
                 src={catImg}
                 alt="Adorable cat with bright eyes in a veterinary clinic setting"
                 className="h-full max-w-full object-cover w-full"
               />
             </div>
-            <div className="absolute bg-white bottom-[-21px] left-[-21px] shadow-[rgba(0,0,0,0)_0px_0px_0px_0px,rgba(0,0,0,0)_0px_0px_0px_0px,rgba(0,0,0,0)_0px_0px_0px_0px,rgba(0,0,0,0)_0px_0px_0px_0px,rgba(0,0,0,0.1)_0px_20px_25px_-5px,rgba(0,0,0,0.1)_0px_8px_10px_-6px] flex flex-col gap-[21px] border p-[21px] rounded-[12.75px] border-solid border-black/10">
+            <div className="absolute bg-white bottom-[-1.3125rem] left-[-1.3125rem] shadow-lg flex flex-col gap-5 border p-5 rounded-xl border-solid border-gray-200">
               <div className="text-center">
-                <p className="text-[oklch(0.627_0.194_149.214)] text-[26.25px] leading-[31.5px] mb-[7px]">
-                  2025
-                </p>
-                <p className="text-[oklch(0.446_0.03_256.802)]">Newly Opened</p>
-                <p className="text-[oklch(0.551_0.027_264.364)] text-[12.25px] leading-[17.5px]">
+                <p className="text-primary-600 text-2xl mb-1">2025</p>
+                <p className="text-text-secondary">Newly Opened</p>
+                <p className="text-text-muted text-sm">
                   Fresh Start, Experienced Care
                 </p>
               </div>

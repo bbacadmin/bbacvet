@@ -79,14 +79,14 @@ export default function Services({ launchBooking }: ServicesProps) {
   return (
     <section
       id="services"
-      className="bg-[linear-gradient(oklch(0.982_0.018_155.826)_0%,rgb(255,255,255)_100%)] py-[70px]"
+      className="bg-[linear-gradient(rgb(255,255,255)_0%,rgb(255,255,255)_100%)] py-7"
     >
       <div className="content-wrapper">
         <div className="text-center mb-14">
-          <h2 className="text-[oklch(0.21_0.034_264.665)] text-[26.25px] leading-[31.5px] mb-3.5 md:text-[31.5px] md:leading-[35px]">
+          <h2 className="text-text-primary text-2xl leading-8 mb-3.5 md:text-3xl md:leading-9">
             Comprehensive Pet Care Services
           </h2>
-          <p className="text-[oklch(0.446_0.03_256.802)] text-[17.5px] leading-[24.5px] max-w-2xl mx-auto">
+          <p className="text-text-secondary text-lg leading-6 max-w-2xl mx-auto">
             From routine wellness exams to advanced surgical procedures, we
             provide complete veterinary care for your furry family members at
             every stage of their lives.
@@ -95,28 +95,26 @@ export default function Services({ launchBooking }: ServicesProps) {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-7 mb-14">
           {services.map((service) => (
             <div key={service.title} className="card card-padding">
-              <div className="flex flex-col gap-[21px]">
-                <div className="flex items-center gap-[10.5px] pt-[21px] pb-3.5 px-[21px]">
-                  <div className="flex items-center justify-center h-[42px] w-[42px] rounded-[8.75px] bg-[oklch(0.962_0.044_156.743)]">
-                    <span className="text-[oklch(0.627_0.194_149.214)]">
-                      {service.icon}
-                    </span>
+              <div className="flex flex-col gap-5">
+                <div className="flex items-center gap-2.5 pt-5 pb-3.5 px-5">
+                  <div className="flex items-center justify-center h-10 w-10 rounded-lg bg-bg-tertiary">
+                    <span className="text-text-accent">{service.icon}</span>
                   </div>
-                  <h4 className="text-[oklch(0.21_0.034_264.665)] text-[17.5px] leading-[24.5px]">
+                  <h4 className="text-text-primary text-lg leading-6">
                     {service.title}
                   </h4>
                 </div>
-                <div className="pb-[21px] px-[21px]">
-                  <p className="text-[oklch(0.446_0.03_256.802)] mb-7">
+                <div className="pb-5 px-5">
+                  <p className="text-text-secondary mb-7">
                     {service.description}
                   </p>
                   <ul className="list-none pl-0">
                     {service.items.map((item) => (
                       <li
                         key={item}
-                        className="text-[oklch(0.446_0.03_256.802)] text-[12.25px] items-center flex leading-[17.5px] mb-[7px]"
+                        className="text-text-secondary text-sm items-center flex leading-4 mb-1"
                       >
-                        <div className="bg-[oklch(0.627_0.194_149.214)] h-[5.25px] w-[5.25px] mr-[10.5px] rounded-[3.35544e+07px]"></div>
+                        <div className="bg-text-accent h-1 w-1 mr-2.5 rounded-full"></div>
                         {item}
                       </li>
                     ))}
@@ -127,10 +125,10 @@ export default function Services({ launchBooking }: ServicesProps) {
           ))}
         </div>
         <div className="text-center">
-          <h3 className="text-[oklch(0.21_0.034_264.665)] text-[21px] leading-7 mb-3.5">
+          <h3 className="text-text-primary text-xl leading-7 mb-3.5">
             Ready to Schedule Your Pet's Care?
           </h3>
-          <p className="text-[oklch(0.446_0.03_256.802)] max-w-[588px] mb-7 mx-auto">
+          <p className="text-text-secondary max-w-2xl mb-7 mx-auto">
             Our experienced veterinary team is here to provide the highest
             quality care for your beloved pet. Book an appointment today and let
             us help keep your furry friend healthy and happy.
