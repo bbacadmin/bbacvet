@@ -49,4 +49,4 @@
 
 ---
 
-_Last Updated: September 2025_
+_Last Updated: September 14, 2025_

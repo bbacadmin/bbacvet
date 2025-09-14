@@ -1,9 +1,24 @@
 import React from "react";
 import { Heart, Home, Phone, Calendar, ArrowLeft } from "lucide-react";
-import { Link } from "react-router-dom";
-import logoImg from "./assets/logo.png";
+import { Link, useNavigate } from "react-router-dom";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 
 export default function NotFound() {
+  const navigate = useNavigate();
+
+  // State management for mobile menu
+  const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
+
+  // State management for active navigation (not very useful on 404 page, but required by Header)
+  const [active, setActive] = React.useState("home");
+
+  // ScrollTo function that redirects to main page sections
+  const scrollTo = (id: "home" | "services" | "about" | "contact") => {
+    // Navigate to main page with hash for the section
+    navigate(`/#${id}`);
+  };
+
   const launchBooking = () => {
     const fn = (window as any).YourVetBook;
     if (typeof fn === "function") fn("brightonbeachac");
@@ -11,37 +26,18 @@ export default function NotFound() {
 
   return (
     <div className="site-container">
-      {/* Header */}
-      <header className="site-header">
-        <div className="content-wrapper">
-          <div className="header-content">
-            <Link to="/" className="logo-link">
-              <img src={logoImg} alt="bbacvet logo" className="logo-image" />
-              <div className="logo-text">
-                <span className="logo-title">bbacvet.com</span>
-                <span className="logo-subtitle">Veterinary Care</span>
-              </div>
-            </Link>
-          </div>
-        </div>
-      </header>
+      <Header
+        mobileMenuOpen={mobileMenuOpen}
+        setMobileMenuOpen={setMobileMenuOpen}
+        active={active}
+        scrollTo={scrollTo}
+        launchBooking={launchBooking}
+      />
 
       {/* 404 Content */}
-      <section className="section section-white notfound-section">
+      <section className="section notfound-section">
         <div className="content-wrapper">
           <div className="notfound-content">
-            {/* 404 Badge */}
-            <div
-              className="hero-badge"
-              style={{
-                marginBottom: "var(--spacing-xl)",
-                justifyContent: "center",
-              }}
-            >
-              <Heart className="icon-lg text-green-icon" />
-              <span>404 - Page Not Found</span>
-            </div>
-
             {/* Main Message */}
             <h1
               className="hero-title"
@@ -81,64 +77,56 @@ export default function NotFound() {
             </div>
 
             {/* Quick Navigation Cards */}
-            <div
-              className="hero-info-grid"
-              style={{ maxWidth: "36rem", margin: "0 auto var(--spacing-2xl)" }}
-            >
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 max-w-2xl mx-auto mb-12">
               <Link
                 to="/#services"
-                className="card card-padding-sm"
-                style={{ textDecoration: "none" }}
+                className="card card-padding-sm no-underline"
+                style={{ textAlign: "left" }}
               >
-                <div className="hero-badge">
-                  <Heart className="icon-sm text-green-icon" />
-                  Services
-                </div>
-                <div
-                  style={{
-                    fontSize: "0.875rem",
-                    color: "var(--color-emerald-800)",
-                  }}
-                >
-                  View Our Care Options
+                <div className="flex items-start">
+                  <Heart className="text-green-600 h-5 w-5 mr-2.5 mt-0.5 flex-shrink-0" />
+                  <div>
+                    <div className="text-emerald-900 font-medium text-sm mb-1">
+                      Services
+                    </div>
+                    <div className="text-emerald-800 text-sm">
+                      View Our Care Options
+                    </div>
+                  </div>
                 </div>
               </Link>
 
               <a
-                className="card card-padding-sm"
+                className="card card-padding-sm no-underline"
                 href="tel:+19297381230"
-                style={{ textDecoration: "none" }}
+                style={{ textAlign: "left" }}
               >
-                <div className="hero-badge">
-                  <Phone className="icon-sm text-green-icon" />
-                  Call Us
-                </div>
-                <div
-                  style={{
-                    fontSize: "0.875rem",
-                    color: "var(--color-emerald-800)",
-                  }}
-                >
-                  (929) 738-1230
+                <div className="flex items-start">
+                  <Phone className="text-green-600 h-5 w-5 mr-2.5 mt-0.5 flex-shrink-0" />
+                  <div>
+                    <div className="text-emerald-900 font-medium text-sm mb-1">
+                      Call Us
+                    </div>
+                    <div className="text-emerald-800 text-sm">
+                      (929) 738-1230
+                    </div>
+                  </div>
                 </div>
               </a>
 
               <Link
                 to="/#about"
-                className="card card-padding-sm"
-                style={{ textDecoration: "none" }}
+                className="card card-padding-sm no-underline"
+                style={{ textAlign: "left" }}
               >
-                <div className="hero-badge">
-                  <ArrowLeft className="icon-sm text-green-icon" />
-                  About Us
-                </div>
-                <div
-                  style={{
-                    fontSize: "0.875rem",
-                    color: "var(--color-emerald-800)",
-                  }}
-                >
-                  Learn More
+                <div className="flex items-start">
+                  <ArrowLeft className="text-green-600 h-5 w-5 mr-2.5 mt-0.5 flex-shrink-0" />
+                  <div>
+                    <div className="text-emerald-900 font-medium text-sm mb-1">
+                      About Us
+                    </div>
+                    <div className="text-emerald-800 text-sm">Learn More</div>
+                  </div>
                 </div>
               </Link>
             </div>
@@ -150,6 +138,7 @@ export default function NotFound() {
                 maxWidth: "32rem",
                 margin: "0 auto",
                 padding: "var(--spacing-xl)",
+                textAlign: "left",
               }}
             >
               <h3
@@ -193,84 +182,7 @@ export default function NotFound() {
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="site-footer">
-        <div className="content-wrapper">
-          <div className="footer-content">
-            <div>
-              <div className="footer-brand">
-                <img src={logoImg} alt="logo" />
-                <div className="footer-brand-text">
-                  <span>bbacvet.com</span>
-                  <span className="footer-brand-subtitle">Veterinary Care</span>
-                </div>
-              </div>
-              <p
-                className="footer-description"
-                style={{ color: "var(--color-gray-500)" }}
-              >
-                Compassionate veterinary care for your beloved pets.
-              </p>
-            </div>
-            <div>
-              <div className="footer-section-title">Quick Links</div>
-              <div
-                style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  gap: "var(--spacing-sm)",
-                }}
-              >
-                <Link
-                  to="/"
-                  style={{
-                    color: "var(--color-gray-400)",
-                    textDecoration: "none",
-                  }}
-                >
-                  Home
-                </Link>
-                <Link
-                  to="/#services"
-                  style={{
-                    color: "var(--color-gray-400)",
-                    textDecoration: "none",
-                  }}
-                >
-                  Services
-                </Link>
-                <Link
-                  to="/#contact"
-                  style={{
-                    color: "var(--color-gray-400)",
-                    textDecoration: "none",
-                  }}
-                >
-                  Contact
-                </Link>
-              </div>
-            </div>
-            <div>
-              <div className="footer-section-title">Contact</div>
-              <div style={{ color: "var(--color-gray-400)" }}>
-                <div>(929) 738-1230</div>
-                <div>bbacvet@gmail.com</div>
-                <div>122 Brighton 11th Street</div>
-                <div>Brooklyn, NY 11235</div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="footer-bottom">
-          <div className="content-wrapper">
-            <div className="footer-bottom-content">
-              <div>
-                © {new Date().getFullYear()} bbacvet.com. All rights reserved.
-              </div>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <Footer launchBooking={launchBooking} />
     </div>
   );
 }

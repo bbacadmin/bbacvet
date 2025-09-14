@@ -10,7 +10,7 @@
 ### File Structure
 
 - `src/index.css`: Tailwind imports + custom styles import
-- `src/styles.css`: Comprehensive custom CSS design system (800+ lines)
+- `src/styles.css`: Comprehensive custom CSS design system (~500+ lines)
 
 ## Design Tokens (CSS Custom Properties)
 
@@ -18,33 +18,29 @@
 
 ```css
 :root {
-  /* Primary Colors */
-  --color-green-primary: #059669; /* Emerald green - primary brand color */
-  --color-green-light: #d1fae5; /* Light green for backgrounds */
-  --color-green-dark: #065f46; /* Dark green for hover states */
+  /* Emerald Color Variants */
+  --color-emerald-50: #ecfdf5;
+  --color-emerald-100: #d1fae5;
+  --color-emerald-500: #10b981;
+  --color-emerald-600: #059669;
+  --color-emerald-700: #047857;
+  --color-emerald-800: #065f46;
+  --color-emerald-900: #064e3b;
+
+  /* Orange Accent */
+  --color-orange-400: #fb923c;
 
   /* Neutral Colors */
-  --color-white: #ffffff;
-  --color-black: #000000;
-  --color-gray-50: #f9fafb;
-  --color-gray-100: #f3f4f6;
+  --color-slate-800: #1e293b;
   --color-gray-200: #e5e7eb;
-  --color-gray-300: #d1d5db;
   --color-gray-400: #9ca3af;
-  --color-gray-500: #6b7280;
-  --color-gray-600: #4b5563;
   --color-gray-700: #374151;
-  --color-gray-800: #1f2937;
-  --color-gray-900: #111827;
 
-  /* Semantic Colors */
-  --color-text-primary: var(--color-gray-900);
-  --color-text-secondary: var(--color-gray-600);
-  --color-background: var(--color-white);
-  --color-border: var(--color-gray-200);
+  /* Dark Theme */
+  --color-dark-bg: #0f172a;
 
-  /* Icon Colors */
-  --color-green-icon: var(--color-green-primary);
+  /* Accent Colors */
+  --color-yellow-400: #facc15;
 }
 ```
 
@@ -132,16 +128,24 @@
 
 ```css
 .btn-primary {
-  background-color: var(--color-green-primary);
-  color: var(--color-white);
-  border-radius: var(--radius-md);
-  padding: var(--space-3) var(--space-6);
-  font-weight: 600;
-  transition: all 0.2s;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--color-emerald-600);
+  color: #fff;
+  padding: var(--spacing-sm) var(--spacing-md);
+  border-radius: 14px;
+  font-weight: 500;
+  text-align: center;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+  box-shadow: 0 6px 16px #10b98140;
 }
 
 .btn-primary:hover {
-  background-color: var(--color-green-dark);
+  background-color: var(--color-emerald-700);
 }
 ```
 
@@ -311,4 +315,4 @@ module.exports = {
 
 ---
 
-_Last Updated: September 2025_
+_Last Updated: September 14, 2025_

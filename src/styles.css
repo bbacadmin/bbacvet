@@ -475,6 +475,10 @@ body {
   scroll-margin-top: 5rem;
 }
 
+.no-underline {
+  text-decoration: none;
+}
+
 .icon-sm {
   height: 1rem;
   width: 1rem;

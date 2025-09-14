@@ -271,4 +271,4 @@ VITE_GOOGLE_ANALYTICS_ID=GA_MEASUREMENT_ID
 
 ---
 
-_Last Updated: September 2025_
+_Last Updated: September 14, 2025_

@@ -4,17 +4,84 @@
 
 ### Main Application Component (`App.tsx`)
 
-**Location**: `src/App.tsx` (1200+ lines)
-**Purpose**: Primary application component containing all sections and functionality
+**Location**: `src/App.tsx` (~150 lines)
+**Purpose**: Container component that orchestrates the application and manages shared state
 
-**Key Sections:**
+**Key Responsibilities:**
 
-- Header with navigation and mobile menu
-- Hero section with call-to-action
-- Services grid with detailed service cards
-- About section with clinic information
-- Contact section with booking capabilities
-- Footer with comprehensive information
+- Imports and renders all section components
+- Manages shared state (mobile menu, active navigation)
+- Handles smooth scrolling functionality
+- Manages booking widget integration
+- Provides shared functions to child components
+
+### Component Structure (`src/components/`)
+
+**Modular Architecture**: The application has been refactored into 7 focused components:
+
+#### Header Component (`Header.tsx`)
+
+**Purpose**: Navigation and branding
+
+- Logo and clinic name display
+- Desktop and mobile navigation menus
+- Active section highlighting
+- Mobile menu overlay functionality
+- Booking button integration
+
+#### Hero Component (`Hero.tsx`)
+
+**Purpose**: Main landing section with call-to-action
+
+- Clinic introduction and value proposition
+- Contact information cards (phone, hours, location)
+- Hero image with overlay information
+- Primary booking call-to-action
+- Star rating display
+
+#### Services Component (`Services.tsx`)
+
+**Purpose**: Service offerings presentation
+
+- Grid layout of 5 main services
+- Service cards with icons and descriptions
+- Feature lists for each service
+- Responsive design for mobile/desktop
+
+#### About Component (`About.tsx`)
+
+**Purpose**: Clinic information and credentials
+
+- Mission statement and values
+- Team and facility highlights
+- Trust indicators and certifications
+- Brand story presentation
+
+#### Contact Component (`Contact.tsx`)
+
+**Purpose**: Contact information and booking
+
+- Contact details and location
+- Integrated booking system
+- Visit preparation information
+- Hours and directions
+
+#### CtaBanner Component (`CtaBanner.tsx`)
+
+**Purpose**: Secondary call-to-action
+
+- Prominent booking encouragement
+- Trust signals and urgency
+- Strategic placement before footer
+
+#### Footer Component (`Footer.tsx`)
+
+**Purpose**: Comprehensive site information
+
+- Contact details and social links
+- Service listings and hours
+- Legal information and links
+- Multi-column responsive layout
 
 ### Entry Point (`main.tsx`)
 
@@ -233,4 +300,4 @@ const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
 
 ---
 
-_Last Updated: September 2025_
+_Last Updated: September 14, 2025_
