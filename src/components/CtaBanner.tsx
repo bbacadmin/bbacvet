@@ -1,5 +1,4 @@
 import React from "react";
-import { CLINIC_DATA } from "../constants/clinicData";
 import ContactLink from "./ContactLink";
 import ClinicInfo from "./ClinicInfo";
 import dog2Img from "../assets/dog2.jpg";

@@ -1,6 +1,5 @@
 import React from "react";
 import { Calendar } from "lucide-react";
-import { CLINIC_DATA } from "../constants/clinicData";
 import ContactCard from "./ContactCard";
 
 interface ContactProps {

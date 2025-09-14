@@ -11,7 +11,7 @@ export default function NotFound() {
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
 
   // State management for active navigation (not very useful on 404 page, but required by Header)
-  const [active, setActive] = React.useState("home");
+  const [active] = React.useState("home");
 
   // ScrollTo function that redirects to main page sections
   const scrollTo = (id: "home" | "services" | "about" | "contact") => {
@@ -20,7 +20,8 @@ export default function NotFound() {
   };
 
   const launchBooking = () => {
-    const fn = (window as any).YourVetBook;
+    const fn = (window as { YourVetBook?: (clinicId: string) => void })
+      .YourVetBook;
     if (typeof fn === "function") fn("brightonbeachac");
   };
 

@@ -1,6 +1,5 @@
 import React from "react";
-import { Heart, Shield, Users, Star } from "lucide-react";
-import { CLINIC_DATA } from "../constants/clinicData";
+import { Star } from "lucide-react";
 import ClinicInfo from "./ClinicInfo";
 import ContactCard from "./ContactCard";
 import catImg from "../assets/cat.jpg";

@@ -1,6 +1,5 @@
 import React from "react";
 import { Menu, X } from "lucide-react";
-import { CLINIC_DATA } from "../constants/clinicData";
 import ClinicInfo from "./ClinicInfo";
 import ContactLink from "./ContactLink";
 
@@ -30,7 +29,7 @@ const navItem = (
     href={`#${id}`}
     onClick={(e) => {
       e.preventDefault();
-      scrollTo(id as any);
+      scrollTo(id as keyof typeof map);
     }}
     className={`nav-link ${active === id ? "active" : ""}`}
   >
@@ -98,7 +97,7 @@ export default function Header({
                 href={`#${id}`}
                 onClick={(e) => {
                   e.preventDefault();
-                  scrollTo(id as any);
+                  scrollTo(id as keyof typeof map);
                   setMobileMenuOpen(false);
                 }}
                 className={`mobile-nav-link ${active === id ? "active" : ""}`}

@@ -143,7 +143,9 @@ export default function App() {
   }, []);
 
   const launchBooking = () => {
-    const fn = (window as any).YourVetBook;
+    const fn = (
+      window as { YourVetBook?: (clinicId: string, locationId: string) => void }
+    ).YourVetBook;
     if (typeof fn === "function") fn(CLINIC_ID, LOCATION_ID);
   };
 
