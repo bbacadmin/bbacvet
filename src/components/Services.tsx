@@ -141,7 +141,7 @@ export default function Services({ launchBooking }: ServicesProps) {
             onClick={() => launchBooking()}
             className="btn-primary-modern"
           >
-            Schedule an Appointment
+            Book Appointment
           </button>
         </div>
       </div>

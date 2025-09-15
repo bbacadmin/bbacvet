@@ -28,7 +28,7 @@ export default function CtaBanner({ launchBooking }: CtaBannerProps) {
           </p>
           <div className="flex flex-col md:flex-row gap-6 mb-16 justify-center items-center">
             <button onClick={() => launchBooking()} className="btn-pill w-auto">
-              Book Appointment Now
+              Book Appointment
             </button>
             <ContactLink
               type="phone"

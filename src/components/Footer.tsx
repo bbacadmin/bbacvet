@@ -1,5 +1,5 @@
 import { Instagram } from "lucide-react";
-import { CLINIC_DATA } from "../constants/clinicData";
+import { CLINIC_DATA } from "../constants/data";
 import ClinicInfo from "./ClinicInfo";
 import ContactCard from "./ContactCard";
 
@@ -62,15 +62,8 @@ export default function Footer({ launchBooking }: FooterProps) {
             </h4>
             <div className="mb-8">
               <div className="text-white/80 space-y-2">
-                <p className="leading-relaxed">
-                  Mon, Wed, Thu, Fri: {CLINIC_DATA.hours.detailed.monday}
-                </p>
-                <p className="leading-relaxed">
-                  Sat: {CLINIC_DATA.hours.detailed.saturday}
-                </p>
-                <p className="leading-relaxed">
-                  Tue, Sun: {CLINIC_DATA.hours.detailed.tuesday}
-                </p>
+                <p className="leading-relaxed">{CLINIC_DATA.hours.weekdays}</p>
+                <p className="leading-relaxed">{CLINIC_DATA.hours.weekend}</p>
               </div>
             </div>
             <div>

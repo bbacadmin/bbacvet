@@ -1,5 +1,5 @@
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
-import { CLINIC_DATA } from "../constants/clinicData";
+import { CLINIC_DATA } from "../constants/data";
 import { LucideIcon } from "lucide-react";
 
 /**
@@ -211,15 +211,4 @@ export const getContactLinkStyles = (variant: ContactVariant): string => {
     default:
       return "text-primary hover:text-primary-dark transition-colors";
   }
-};
-
-/**
- * Get hours display data
- */
-export const getHoursData = () => {
-  return {
-    monday: CLINIC_DATA.hours.detailed.monday,
-    saturday: CLINIC_DATA.hours.detailed.saturday,
-    tuesday: CLINIC_DATA.hours.detailed.tuesday,
-  };
 };

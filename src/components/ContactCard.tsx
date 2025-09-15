@@ -1,11 +1,10 @@
 import { Phone, Mail, MapPin, Clock } from "lucide-react";
-import { CLINIC_DATA } from "../constants/clinicData";
+import { CLINIC_DATA } from "../constants/data";
 import { ContactVariant } from "../utils/contactHelpers";
 import {
   getContactCardClasses,
   getContactCardIconClasses,
   getContactLinkStyles,
-  getHoursData,
 } from "../utils/contactHelpers";
 
 interface ContactCardProps {
@@ -26,7 +25,6 @@ export default function ContactCard({
   className = "",
 }: ContactCardProps) {
   const cardClasses = getContactCardClasses(variant);
-  const hoursData = getHoursData();
 
   return (
     <div className={`${cardClasses.link} ${className}`}>
@@ -134,9 +132,8 @@ export default function ContactCard({
           <div className="flex flex-col justify-center">
             {variant !== "hero" && <h4 className={cardClasses.label}>Hours</h4>}
             <div className="text-text-secondary space-y-1">
-              <p className="text-sm">Mon-Fri: {hoursData.monday}</p>
-              <p className="text-sm">Sat: {hoursData.saturday}</p>
-              <p className="text-sm">Sun-Tue: {hoursData.tuesday}</p>
+              <p className="text-sm">{CLINIC_DATA.hours.weekdays}</p>
+              <p className="text-sm">{CLINIC_DATA.hours.weekend}</p>
             </div>
           </div>
         </div>

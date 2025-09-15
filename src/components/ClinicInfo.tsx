@@ -1,4 +1,4 @@
-import { CLINIC_DATA } from "../constants/clinicData";
+import { CLINIC_DATA } from "../constants/data";
 import logoImg from "../assets/logo.png";
 
 interface ClinicInfoProps {

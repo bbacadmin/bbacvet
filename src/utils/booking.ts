@@ -1,4 +1,4 @@
-import { CLINIC_DATA } from "../constants/clinicData";
+import { CLINIC_DATA } from "../constants/data";
 
 /**
  * Launches the booking system using YourVetBook
