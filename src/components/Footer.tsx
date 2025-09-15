@@ -11,8 +11,9 @@ export default function Footer({ launchBooking }: FooterProps) {
   return (
     <footer className="text-white bg-gray-900 py-20">
       <div className="content-wrapper">
-        <div className="grid grid-cols-1 md:grid-cols-6 gap-8">
-          <div className="md:col-span-2">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-8 items-start">
+          {/* Brand/Description Column - spans 4 columns */}
+          <div className="md:col-span-4">
             <ClinicInfo variant="footer" className="mb-6" />
             <p className="text-white/80 mb-8 leading-relaxed">
               {CLINIC_DATA.description}
@@ -24,7 +25,9 @@ export default function Footer({ launchBooking }: FooterProps) {
               Book Appointment
             </button>
           </div>
-          <div className="md:col-span-2">
+
+          {/* Contact Information Column - spans 3 columns */}
+          <div className="md:col-span-3">
             <h4 className="text-xl font-semibold mb-8 leading-tight">
               Contact Information
             </h4>
@@ -34,9 +37,12 @@ export default function Footer({ launchBooking }: FooterProps) {
               showEmail={true}
               showAddress={true}
               showHours={false}
+              className="space-y-6"
             />
           </div>
-          <div className="md:col-span-1">
+
+          {/* Our Services Column - spans 2 columns (centered) */}
+          <div className="md:col-span-2">
             <h4 className="text-xl font-semibold mb-8 leading-tight">
               Our Services
             </h4>
@@ -48,7 +54,9 @@ export default function Footer({ launchBooking }: FooterProps) {
               <li className="cursor-pointer">Dentistry</li>
             </ul>
           </div>
-          <div className="md:col-span-1">
+
+          {/* Hours & Social Column - spans 3 columns */}
+          <div className="md:col-span-3">
             <h4 className="text-xl font-semibold mb-8 leading-tight">
               Hours & Social
             </h4>
@@ -70,7 +78,7 @@ export default function Footer({ launchBooking }: FooterProps) {
               <div className="flex">
                 <a
                   href={CLINIC_DATA.social.instagram.url}
-                  className="flex items-center justify-center h-10 w-10 mr-3.5 rounded-xl gradient-primary text-white shadow-lg"
+                  className="flex items-center justify-center h-10 w-10 rounded-xl gradient-primary text-white shadow-lg"
                 >
                   <Instagram className="h-4 w-4 stroke-[2]" />
                 </a>

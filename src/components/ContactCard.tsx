@@ -49,9 +49,9 @@ export default function ContactCard({
           case "phone":
             return `${baseClasses} h-4 w-4 stroke-[2]`;
           case "email":
-            return `${baseClasses} h-3.5 w-3.5 stroke-[2]`;
+            return `${baseClasses} h-4 w-4 stroke-[2]`;
           case "address":
-            return `${baseClasses} h-3.5 w-3.5 stroke-[2]`;
+            return `${baseClasses} h-4 w-4 stroke-[2]`;
           case "hours":
             return `${baseClasses} h-4 w-4 stroke-[2]`;
           default:
@@ -124,6 +124,11 @@ export default function ContactCard({
             >
               {CLINIC_DATA.contact.phone.number}
             </a>
+            {variant === "hero" && (
+              <p className="text-text-muted text-sm leading-4">
+                Call us for appointments
+              </p>
+            )}
           </div>
         </div>
       )}
@@ -200,17 +205,15 @@ export default function ContactCard({
               >
                 {CLINIC_DATA.contact.address.street}
               </p>
-              {variant !== "hero" && (
-                <p
-                  className={
-                    variant === "footer"
-                      ? "text-white/80 text-sm leading-4"
-                      : "text-text-secondary text-sm leading-4"
-                  }
-                >
-                  {CLINIC_DATA.contact.address.city}
-                </p>
-              )}
+              <p
+                className={
+                  variant === "footer"
+                    ? "text-white/80 text-sm leading-4"
+                    : "text-text-secondary text-sm leading-4"
+                }
+              >
+                {CLINIC_DATA.contact.address.city}
+              </p>
             </a>
           </div>
         </div>

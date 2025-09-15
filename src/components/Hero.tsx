@@ -48,10 +48,10 @@ export default function Hero({ launchBooking, scrollTo }: HeroProps) {
               and happiness are our top priority. Our experienced veterinary
               team provides comprehensive care in a warm, welcoming environment.
             </p>
-            <div className="flex flex-col md:flex-row gap-4 mb-12">
+            <div className="flex flex-row gap-4 mb-12">
               <button
                 onClick={() => launchBooking()}
-                className="btn-primary-modern"
+                className="btn-primary-modern max-w-xs"
               >
                 Book Appointment
               </button>
@@ -61,7 +61,7 @@ export default function Hero({ launchBooking, scrollTo }: HeroProps) {
                   e.preventDefault();
                   scrollTo("about");
                 }}
-                className="btn-primary-modern"
+                className="btn-primary-modern max-w-xs"
               >
                 Learn More
               </a>
@@ -74,18 +74,6 @@ export default function Hero({ launchBooking, scrollTo }: HeroProps) {
                 alt="Adorable cat with bright eyes in a veterinary clinic setting"
                 className="h-full max-w-full object-cover w-full"
               />
-              <div
-                className="absolute bottom-4 left-4 shadow-xl flex flex-col gap-6 border p-6 md:p-8 md:pb-16 rounded-2xl border-solid border-gray-200 card-modern md:min-h-[200px]"
-                style={{ background: "var(--color-neutral-light)" }}
-              >
-                <div className="text-center">
-                  <p className="text-primary text-3xl font-bold mb-2">2025</p>
-                  <p className="text-secondary font-medium">Newly Opened</p>
-                  <p className="text-muted text-sm">
-                    Fresh Start, Experienced Care
-                  </p>
-                </div>
-              </div>
             </div>
           </div>
         </div>
