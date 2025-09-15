@@ -45,6 +45,7 @@ export const CLINIC_DATA = {
 
   booking: {
     clinicId: "brightonbeachac",
+    locationId: "27743",
   },
 
   established: "2025",

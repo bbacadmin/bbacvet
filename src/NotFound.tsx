@@ -1,8 +1,10 @@
 import React from "react";
-import { Heart, Home, Phone, Calendar, Mail } from "lucide-react";
-import { Link, useNavigate } from "react-router-dom";
+import { Phone, Calendar, Mail } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import { launchBooking } from "./utils/booking";
+import { navigateToSection } from "./utils/navigation";
 
 export default function NotFound() {
   const navigate = useNavigate();
@@ -15,14 +17,7 @@ export default function NotFound() {
 
   // ScrollTo function that redirects to main page sections
   const scrollTo = (id: "home" | "services" | "about" | "contact") => {
-    // Navigate to main page with hash for the section
-    navigate(`/#${id}`);
-  };
-
-  const launchBooking = () => {
-    const fn = (window as { YourVetBook?: (clinicId: string) => void })
-      .YourVetBook;
-    if (typeof fn === "function") fn("brightonbeachac");
+    navigateToSection(navigate, id);
   };
 
   return (
@@ -50,39 +45,24 @@ export default function NotFound() {
               you're looking for!
             </p>
 
-            {/* Action Buttons */}
-            <div className="flex flex-col md:flex-row gap-6 mb-16 justify-center">
-              <Link to="/" className="btn-primary-modern">
-                <Home className="icon-md mr-3" />
-                Return Home
-              </Link>
-              <button
-                onClick={() => launchBooking()}
-                className="btn-ghost-modern"
-              >
-                <Calendar className="icon-md mr-3" />
-                Book Appointment
-              </button>
-            </div>
-
             {/* Quick Navigation Cards */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-4xl mx-auto mb-16">
-              <Link
-                to="/#services"
+              <button
+                onClick={() => launchBooking()}
                 className="card-modern card-padding text-left hover:shadow-lg transition-all duration-300"
               >
                 <div className="flex items-start">
                   <div className="flex items-center justify-center h-14 w-14 mr-3.5 rounded-xl gradient-primary text-white shadow-lg">
-                    <Heart className="text-white h-6 w-6" />
+                    <Calendar className="text-white h-6 w-6" />
                   </div>
                   <div>
                     <div className="text-heading font-semibold text-lg mb-2">
-                      Services
+                      Book Appointment
                     </div>
-                    <div className="text-secondary">View Our Care Options</div>
+                    <div className="text-secondary">Schedule Your Visit</div>
                   </div>
                 </div>
-              </Link>
+              </button>
 
               <a
                 className="card-modern card-padding text-left hover:shadow-lg transition-all duration-300"
