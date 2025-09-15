@@ -556,9 +556,8 @@ body {
 
 .nav-link:hover {
   color: var(--color-primary);
-  background-color: rgba(75, 88, 66, 0.06);
-  transform: translateY(-1px);
-  box-shadow: 0 4px 12px rgba(75, 88, 66, 0.15);
+  border-bottom: 2px solid var(--color-primary);
+  padding-bottom: calc(var(--space-2) - 2px);
 }
 
 /* ===== CONTACT SECTION ===== */

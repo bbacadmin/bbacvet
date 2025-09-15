@@ -1,4 +1,4 @@
-import { Calendar } from "lucide-react";
+import { MapPin, CalendarDays, Package } from "lucide-react";
 import ContactCard from "./ContactCard";
 
 interface ContactProps {
@@ -25,8 +25,8 @@ export default function Contact({ launchBooking }: ContactProps) {
             an appointment or reach out with any questions about our services.
           </p>
         </div>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
-          <div>
+        <div className="flex flex-col md:flex-row gap-16">
+          <div className="flex-1">
             <h3 className="text-heading text-3xl mb-8 leading-tight">
               Get in Touch
             </h3>
@@ -36,7 +36,7 @@ export default function Contact({ launchBooking }: ContactProps) {
             <div className="card-modern p-8">
               <div className="flex items-center mb-6">
                 <div className="flex items-center justify-center h-14 w-14 mr-3 rounded-xl gradient-primary text-white shadow-lg">
-                  <Calendar className="text-white h-6 w-6" />
+                  <MapPin className="text-white h-6 w-6" />
                 </div>
                 <h4 className="text-heading text-xl">Visit Information</h4>
               </div>
@@ -53,19 +53,14 @@ export default function Contact({ launchBooking }: ContactProps) {
               </p>
             </div>
           </div>
-          <div className="card-elevated card-padding">
-            <div className="flex items-center mb-8">
-              <div className="flex items-center justify-center h-14 w-14 mr-3 rounded-xl gradient-primary text-white shadow-lg">
-                <Calendar className="text-white h-6 w-6" />
+          <div className="flex-1 flex flex-col gap-8 justify-end">
+            <div className="card-modern p-8">
+              <div className="flex items-center mb-6">
+                <div className="flex items-center justify-center h-14 w-14 mr-3 rounded-xl gradient-primary text-white shadow-lg">
+                  <CalendarDays className="text-white h-6 w-6" />
+                </div>
+                <h4 className="text-heading text-xl">Easy Online Booking</h4>
               </div>
-              <h3 className="text-heading text-2xl leading-tight">
-                Book an Appointment
-              </h3>
-            </div>
-            <div className="text-center mb-10">
-              <h4 className="text-heading text-xl mb-4 leading-tight">
-                Easy Online Booking
-              </h4>
               <p className="text-secondary mb-8 leading-relaxed">
                 Use our convenient online booking system to schedule your pet's
                 appointment. Choose from available time slots and provide your
@@ -73,14 +68,20 @@ export default function Contact({ launchBooking }: ContactProps) {
               </p>
               <button
                 onClick={() => launchBooking()}
-                className="btn-primary-modern mb-6"
+                className="btn-primary-modern"
               >
                 Book Your Appointment
               </button>
             </div>
-            <div className="bg-neutral-light p-6 rounded-xl border border-neutral-dark">
-              <h5 className="text-heading mb-4 text-lg">What to Bring</h5>
-              <ul className="text-secondary text-sm leading-relaxed space-y-3">
+
+            <div className="card-modern p-8">
+              <div className="flex items-center mb-6">
+                <div className="flex items-center justify-center h-14 w-14 mr-3 rounded-xl gradient-primary text-white shadow-lg">
+                  <Package className="text-white h-6 w-6" />
+                </div>
+                <h4 className="text-heading text-xl">What to Bring</h4>
+              </div>
+              <ul className="text-secondary text-sm leading-relaxed space-y-3 text-left ml-0 pl-0">
                 <li className="flex items-center">
                   <div className="bg-primary h-2 w-2 mr-3 rounded-full flex-shrink-0"></div>
                   Previous medical records

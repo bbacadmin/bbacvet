@@ -1,3 +1,4 @@
+import { Building2, Users, Heart } from "lucide-react";
 import ContactLink from "./ContactLink";
 import dog2Img from "../assets/dog2.jpg";
 
@@ -36,8 +37,10 @@ export default function CtaBanner({ launchBooking }: CtaBannerProps) {
             />
           </div>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div>
-              <div className="text-4xl mb-4">🏥</div>
+            <div className="text-left">
+              <div className="flex items-center justify-center h-16 w-16 rounded-xl bg-white/10 text-white mb-4">
+                <Building2 className="h-8 w-8" />
+              </div>
               <h4 className="text-white text-xl mb-3 font-semibold leading-tight">
                 Modern Facility
               </h4>
@@ -45,8 +48,10 @@ export default function CtaBanner({ launchBooking }: CtaBannerProps) {
                 State-of-the-art equipment and comfortable environment
               </p>
             </div>
-            <div>
-              <div className="text-4xl mb-4">👥</div>
+            <div className="text-left">
+              <div className="flex items-center justify-center h-16 w-16 rounded-xl bg-white/10 text-white mb-4">
+                <Users className="h-8 w-8" />
+              </div>
               <h4 className="text-white text-xl mb-3 font-semibold leading-tight">
                 Experienced Team
               </h4>
@@ -54,8 +59,10 @@ export default function CtaBanner({ launchBooking }: CtaBannerProps) {
                 Compassionate professionals dedicated to pet health
               </p>
             </div>
-            <div>
-              <div className="text-4xl mb-4">💙</div>
+            <div className="text-left">
+              <div className="flex items-center justify-center h-16 w-16 rounded-xl bg-white/10 text-white mb-4">
+                <Heart className="h-8 w-8" />
+              </div>
               <h4 className="text-white text-xl mb-3 font-semibold leading-tight">
                 Caring Approach
               </h4>

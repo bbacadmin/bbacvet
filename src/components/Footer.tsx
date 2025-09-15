@@ -11,7 +11,7 @@ export default function Footer({ launchBooking }: FooterProps) {
   return (
     <footer className="text-white bg-gray-900 py-20">
       <div className="content-wrapper">
-        <div className="grid grid-cols-1 md:grid-cols-5 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-6 gap-8">
           <div className="md:col-span-2">
             <ClinicInfo variant="footer" className="mb-6" />
             <p className="text-white/80 mb-8 leading-relaxed">
@@ -24,7 +24,7 @@ export default function Footer({ launchBooking }: FooterProps) {
               Book Appointment
             </button>
           </div>
-          <div>
+          <div className="md:col-span-2">
             <h4 className="text-xl font-semibold mb-8 leading-tight">
               Contact Information
             </h4>
@@ -48,7 +48,7 @@ export default function Footer({ launchBooking }: FooterProps) {
               <li className="cursor-pointer">Dentistry</li>
             </ul>
           </div>
-          <div>
+          <div className="md:col-span-1">
             <h4 className="text-xl font-semibold mb-8 leading-tight">
               Hours & Social
             </h4>
@@ -70,9 +70,9 @@ export default function Footer({ launchBooking }: FooterProps) {
               <div className="flex">
                 <a
                   href={CLINIC_DATA.social.instagram.url}
-                  className="flex items-center justify-center bg-white/10 h-12 w-12 rounded-xl"
+                  className="flex items-center justify-center h-10 w-10 mr-3.5 rounded-xl gradient-primary text-white shadow-lg"
                 >
-                  <Instagram className="h-5 w-5" />
+                  <Instagram className="h-4 w-4 stroke-[2]" />
                 </a>
               </div>
             </div>

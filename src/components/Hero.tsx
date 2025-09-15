@@ -18,7 +18,7 @@ export default function Hero({ launchBooking, scrollTo }: HeroProps) {
   return (
     <section
       id="home"
-      className="relative py-12 md:py-20"
+      className="relative pt-12 md:pt-20 pb-12"
       style={{
         background:
           "linear-gradient(to bottom, var(--color-green-200), var(--color-green-50))",
@@ -61,7 +61,7 @@ export default function Hero({ launchBooking, scrollTo }: HeroProps) {
                   e.preventDefault();
                   scrollTo("about");
                 }}
-                className="btn-ghost-modern"
+                className="btn-primary-modern"
               >
                 Learn More
               </a>
@@ -93,7 +93,7 @@ export default function Hero({ launchBooking, scrollTo }: HeroProps) {
 
       {/* Full width contact cards */}
       <div className="pb-4">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="content-wrapper">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 items-stretch">
             <ContactCard
               variant="hero"

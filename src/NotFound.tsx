@@ -1,5 +1,5 @@
 import React from "react";
-import { Heart, Home, Phone, Calendar, ArrowLeft } from "lucide-react";
+import { Heart, Home, Phone, Calendar, Mail } from "lucide-react";
 import { Link, useNavigate } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
@@ -72,7 +72,9 @@ export default function NotFound() {
                 className="card-modern card-padding text-left hover:shadow-lg transition-all duration-300"
               >
                 <div className="flex items-start">
-                  <Heart className="text-primary h-6 w-6 mr-4 mt-1 flex-shrink-0" />
+                  <div className="flex items-center justify-center h-14 w-14 mr-3.5 rounded-xl gradient-primary text-white shadow-lg">
+                    <Heart className="text-white h-6 w-6" />
+                  </div>
                   <div>
                     <div className="text-heading font-semibold text-lg mb-2">
                       Services
@@ -87,7 +89,9 @@ export default function NotFound() {
                 href="tel:+19297381230"
               >
                 <div className="flex items-start">
-                  <Phone className="text-primary h-6 w-6 mr-4 mt-1 flex-shrink-0" />
+                  <div className="flex items-center justify-center h-14 w-14 mr-3.5 rounded-xl gradient-primary text-white shadow-lg">
+                    <Phone className="text-white h-6 w-6" />
+                  </div>
                   <div>
                     <div className="text-heading font-semibold text-lg mb-2">
                       Call Us
@@ -97,40 +101,22 @@ export default function NotFound() {
                 </div>
               </a>
 
-              <Link
-                to="/#about"
+              <a
                 className="card-modern card-padding text-left hover:shadow-lg transition-all duration-300"
+                href="mailto:bbacvet@gmail.com"
               >
                 <div className="flex items-start">
-                  <ArrowLeft className="text-primary h-6 w-6 mr-4 mt-1 flex-shrink-0" />
+                  <div className="flex items-center justify-center h-14 w-14 mr-3.5 rounded-xl gradient-primary text-white shadow-lg">
+                    <Mail className="text-white h-6 w-6" />
+                  </div>
                   <div>
                     <div className="text-heading font-semibold text-lg mb-2">
-                      About Us
+                      Email Us
                     </div>
-                    <div className="text-secondary">Learn More</div>
+                    <div className="text-secondary">bbacvet@gmail.com</div>
                   </div>
                 </div>
-              </Link>
-            </div>
-
-            {/* Contact Information */}
-            <div className="card-elevated card-padding max-w-2xl mx-auto text-left">
-              <h3 className="text-heading text-2xl mb-6 leading-tight">
-                Need Help Finding Something?
-              </h3>
-              <p className="text-secondary mb-8 leading-relaxed">
-                Our team is here to help! Contact us and we'll make sure your
-                pet gets the care they need.
-              </p>
-              <div className="flex flex-col md:flex-row gap-4 justify-center">
-                <a href="tel:+19297381230" className="btn-primary-modern">
-                  <Phone className="icon-md mr-3" />
-                  Call Now
-                </a>
-                <a href="mailto:bbacvet@gmail.com" className="btn-ghost-modern">
-                  Email Us
-                </a>
-              </div>
+              </a>
             </div>
           </div>
         </div>

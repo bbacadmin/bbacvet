@@ -62,7 +62,10 @@ export default function Header({
               {navItem("contact", "Contact", active, scrollTo)}
               <div className="items-center hidden md:flex">
                 <ContactLink type="phone" variant="header" />
-                <button onClick={() => launchBooking()} className="btn-primary">
+                <button
+                  onClick={() => launchBooking()}
+                  className="btn-primary-modern"
+                >
                   Book Appointment
                 </button>
               </div>
@@ -112,7 +115,7 @@ export default function Header({
                 launchBooking();
                 setMobileMenuOpen(false);
               }}
-              className="btn-primary mobile-menu-book-button"
+              className="btn-primary-modern mobile-menu-book-button"
             >
               Book Appointment
             </button>

@@ -103,15 +103,12 @@ export default function About() {
 
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-24">
           {features.map((feature) => (
-            <div
-              key={feature.title}
-              className="card-modern card-padding text-center"
-            >
+            <div key={feature.title} className="card-modern card-padding">
               <div className="flex flex-col gap-6">
                 <div className="flex items-center justify-center h-16 w-16 rounded-2xl gradient-primary text-white shadow-lg mx-auto">
                   {feature.icon}
                 </div>
-                <h4 className="text-heading text-lg leading-tight">
+                <h4 className="text-heading text-lg leading-tight text-center">
                   {feature.title}
                 </h4>
                 <p className="text-secondary text-sm leading-relaxed">

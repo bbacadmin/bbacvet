@@ -28,14 +28,48 @@ export default function ContactCard({
     }
   };
 
-  const getIconClasses = () => {
+  const getIconClasses = (type: "phone" | "email" | "address" | "hours") => {
+    const baseClasses = "text-white";
     switch (variant) {
       case "hero":
-        return "text-white h-6 w-6";
+        switch (type) {
+          case "phone":
+            return `${baseClasses} h-6 w-6`;
+          case "email":
+            return `${baseClasses} h-7 w-6`;
+          case "address":
+            return `${baseClasses} h-7 w-6`;
+          case "hours":
+            return `${baseClasses} h-6 w-6`;
+          default:
+            return `${baseClasses} h-6 w-6`;
+        }
       case "footer":
-        return "text-white h-4 w-4";
+        switch (type) {
+          case "phone":
+            return `${baseClasses} h-4 w-4 stroke-[2]`;
+          case "email":
+            return `${baseClasses} h-3.5 w-3.5 stroke-[2]`;
+          case "address":
+            return `${baseClasses} h-3.5 w-3.5 stroke-[2]`;
+          case "hours":
+            return `${baseClasses} h-4 w-4 stroke-[2]`;
+          default:
+            return `${baseClasses} h-4 w-4 stroke-[2]`;
+        }
       default:
-        return "text-white h-6 w-6";
+        switch (type) {
+          case "phone":
+            return `${baseClasses} h-6 w-6`;
+          case "email":
+            return `${baseClasses} h-7 w-6`;
+          case "address":
+            return `${baseClasses} h-7 w-6`;
+          case "hours":
+            return `${baseClasses} h-6 w-6`;
+          default:
+            return `${baseClasses} h-6 w-6`;
+        }
     }
   };
 
@@ -74,7 +108,7 @@ export default function ContactCard({
               variant === "footer" ? "h-10 w-10" : "h-14 w-14"
             } mr-3.5 rounded-xl gradient-primary text-white shadow-lg`}
           >
-            <Phone className={getIconClasses()} />
+            <Phone className={getIconClasses("phone")} />
           </div>
           <div>
             {variant !== "hero" && <h4 className={textClasses.label}>Phone</h4>}
@@ -105,7 +139,7 @@ export default function ContactCard({
               variant === "footer" ? "h-10 w-10" : "h-14 w-14"
             } mr-3.5 rounded-xl gradient-primary text-white shadow-lg`}
           >
-            <Mail className={getIconClasses()} />
+            <Mail className={getIconClasses("email")} />
           </div>
           <div>
             {variant !== "hero" && <h4 className={textClasses.label}>Email</h4>}
@@ -141,7 +175,7 @@ export default function ContactCard({
               variant === "footer" ? "h-10 w-10" : "h-14 w-14"
             } mr-3.5 rounded-xl gradient-primary text-white shadow-lg`}
           >
-            <MapPin className={getIconClasses()} />
+            <MapPin className={getIconClasses("address")} />
           </div>
           <div>
             {variant !== "hero" && (
@@ -170,8 +204,8 @@ export default function ContactCard({
                 <p
                   className={
                     variant === "footer"
-                      ? "text-white/60 text-sm leading-4"
-                      : "text-text-muted text-sm leading-4"
+                      ? "text-white/80 text-sm leading-4"
+                      : "text-text-secondary text-sm leading-4"
                   }
                 >
                   {CLINIC_DATA.contact.address.city}
@@ -193,7 +227,7 @@ export default function ContactCard({
               variant === "footer" ? "h-10 w-10" : "h-14 w-14"
             } mr-3.5 rounded-xl gradient-primary text-white shadow-lg`}
           >
-            <Clock className={getIconClasses()} />
+            <Clock className={getIconClasses("hours")} />
           </div>
           <div>
             {variant !== "hero" && <h4 className={textClasses.label}>Hours</h4>}
