@@ -23,7 +23,7 @@ export const CLINIC_DATA = {
   },
 
   hours: {
-    weekdays: "Mon, Wed, Thu, Fri: 9AM - 6PM, Sat: 9AM - 4PM",
+    weekdays: "Mon, Wed, Thu, Fri, Sat: 9AM - 6PM",
     weekend: "Tue & Sun: Closed",
     detailed: {
       monday: "9AM - 6PM",
@@ -31,7 +31,7 @@ export const CLINIC_DATA = {
       wednesday: "9AM - 6PM",
       thursday: "9AM - 6PM",
       friday: "9AM - 6PM",
-      saturday: "9AM - 4PM",
+      saturday: "9AM - 6PM",
       sunday: "Closed",
     },
   },

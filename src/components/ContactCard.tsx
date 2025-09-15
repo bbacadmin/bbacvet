@@ -29,7 +29,11 @@ export default function ContactCard({
   return (
     <div className={`${cardClasses.link} ${className}`}>
       {showPhone && (
-        <div className="flex items-center mb-6">
+        <div
+          className={`flex ${
+            variant === "footer" ? "items-center" : "items-start"
+          } mb-6`}
+        >
           <div
             className={`flex-shrink-0 flex items-center justify-center ${
               variant === "footer" ? "h-10 w-10" : "h-14 w-14"
@@ -37,7 +41,11 @@ export default function ContactCard({
           >
             <Phone className={getContactCardIconClasses("phone", variant)} />
           </div>
-          <div className="flex flex-col justify-center">
+          <div
+            className={`flex flex-col ${
+              variant === "footer" ? "justify-center" : "justify-start"
+            }`}
+          >
             {variant !== "hero" && <h4 className={cardClasses.label}>Phone</h4>}
             <a
               href={CLINIC_DATA.contact.phone.href}
@@ -55,7 +63,11 @@ export default function ContactCard({
       )}
 
       {showEmail && (
-        <div className="flex items-center mb-6">
+        <div
+          className={`flex ${
+            variant === "footer" ? "items-center" : "items-start"
+          } mb-6`}
+        >
           <div
             className={`flex-shrink-0 flex items-center justify-center ${
               variant === "footer" ? "h-10 w-10" : "h-14 w-14"
@@ -63,7 +75,11 @@ export default function ContactCard({
           >
             <Mail className={getContactCardIconClasses("email", variant)} />
           </div>
-          <div className="flex flex-col justify-center">
+          <div
+            className={`flex flex-col ${
+              variant === "footer" ? "justify-center" : "justify-start"
+            }`}
+          >
             {variant !== "hero" && <h4 className={cardClasses.label}>Email</h4>}
             <a
               href={`mailto:${CLINIC_DATA.contact.email.address}`}
@@ -81,7 +97,11 @@ export default function ContactCard({
       )}
 
       {showAddress && (
-        <div className="flex items-center mb-6">
+        <div
+          className={`flex ${
+            variant === "footer" ? "items-center" : "items-start"
+          } mb-6`}
+        >
           <div
             className={`flex-shrink-0 flex items-center justify-center ${
               variant === "footer" ? "h-10 w-10" : "h-14 w-14"
@@ -89,7 +109,11 @@ export default function ContactCard({
           >
             <MapPin className={getContactCardIconClasses("address", variant)} />
           </div>
-          <div className="flex flex-col justify-center">
+          <div
+            className={`flex flex-col ${
+              variant === "footer" ? "justify-center" : "justify-start"
+            }`}
+          >
             {variant !== "hero" && (
               <h4 className={cardClasses.label}>Address</h4>
             )}
@@ -121,7 +145,11 @@ export default function ContactCard({
       )}
 
       {showHours && (
-        <div className="flex items-center">
+        <div
+          className={`flex ${
+            variant === "footer" ? "items-center" : "items-start"
+          }`}
+        >
           <div
             className={`flex-shrink-0 flex items-center justify-center ${
               variant === "footer" ? "h-10 w-10" : "h-14 w-14"
@@ -129,7 +157,11 @@ export default function ContactCard({
           >
             <Clock className={getContactCardIconClasses("hours", variant)} />
           </div>
-          <div className="flex flex-col justify-center">
+          <div
+            className={`flex flex-col ${
+              variant === "footer" ? "justify-center" : "justify-start"
+            }`}
+          >
             {variant !== "hero" && <h4 className={cardClasses.label}>Hours</h4>}
             <div className="text-text-secondary space-y-1">
               <p className="text-sm">{CLINIC_DATA.hours.weekdays}</p>
